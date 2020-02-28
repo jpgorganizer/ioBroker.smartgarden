@@ -1,0 +1,104 @@
+{
+    "common": {
+        "name": "smartgarden",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "smartGarden",
+        "titleLang": {
+            "en": "smartGarden",
+            "de": "smartGarden",
+            "ru": "smartGarden",
+            "pt": "smartGarden",
+            "nl": "SmartGarden",
+            "fr": "smartGarden",
+            "it": "smartGarden",
+            "es": "smartGarden",
+            "pl": "smartGarden",
+            "zh-cn": "智慧花园"
+        },
+        "desc": {
+            "en": "an adapter for Gardena smart system",
+            "de": "ein Adapter für Gardena Smart System",
+            "ru": "адаптер для умной системы Gardena",
+            "pt": "um adaptador para o sistema inteligente Gardena",
+            "nl": "een adapter voor Gardena smart system",
+            "fr": "un adaptateur pour système intelligent Gardena",
+            "it": "un adattatore per il sistema intelligente Gardena",
+            "es": "un adaptador para el sistema inteligente de Gardena",
+            "pl": "adapter do inteligentnego systemu Gardena",
+            "zh-cn": "Gardena智能系统的适配器"
+        },
+        "authors": [
+            "jpgorganizer"
+        ],
+        "keywords": [
+            "template",
+            "gardena",
+            "smart"
+        ],
+        "license": "CC BY-NC-SA4.0",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "smartgarden.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/jpgorganizer/ioBroker.smartgarden/master/admin/smartgarden.png",
+        "readme": "https://github.com/jpgorganizer/ioBroker.smartgarden/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "garden",
+        "compact": true,
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "smart_host": "https://api.smart.gardena.dev",
+		"authentication_host": "https://api.authentication.husqvarnagroup.dev",
+		"gardena_api_key": "12345678-1234-1234-1234-1234567890ab", 
+        "gardena_username": "mail@me.com",
+        "gardena_password": "password",
+		"gardena_ping_frequence": "120",
+		"gardena_authtoken_factor": "1.001",
+		"useTestVariable": "true"
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}

@@ -1,73 +1,32 @@
 {
-  "_from": "file:/home/pi/dev/iobroker.smartgarden-0.0.1.tgz",
-  "_id": "iobroker.smartgarden@0.0.1",
-  "_inBundle": false,
-  "_integrity": "sha512-S1T5JXNJe028s+QbNNheA4f4k4/xMZbx4akuFAwN1vCT0wD75TW6/bhzIVIdVImSTLV2tPWCw/mfsKbGOQBPrA==",
-  "_location": "/iobroker.smartgarden",
-  "_phantomChildren": {
-    "@types/node": "12.12.21"
-  },
-  "_requested": {
-    "type": "file",
-    "where": "/opt/iobroker",
-    "raw": "/home/pi/dev/iobroker.smartgarden-0.0.1.tgz",
-    "rawSpec": "/home/pi/dev/iobroker.smartgarden-0.0.1.tgz",
-    "saveSpec": "file:/home/pi/dev/iobroker.smartgarden-0.0.1.tgz",
-    "fetchSpec": "/home/pi/dev/iobroker.smartgarden-0.0.1.tgz"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "/home/pi/dev/iobroker.smartgarden-0.0.1.tgz",
-  "_shasum": "4ca911a9803d34b91c16d7c2bdc8079013b66b81",
-  "_spec": "/home/pi/dev/iobroker.smartgarden-0.0.1.tgz",
-  "_where": "/opt/iobroker",
+  "name": "iobroker.smartgarden",
+  "version": "0.0.1",
+  "description": "ioBroker adapter for Gardena smart system",
   "author": {
-    "name": "jpgorganizer",
-    "email": ""
+    "name": "jpgorganizer"
+  },
+  "homepage": "https://github.com/jpgorganizer/ioBroker.smartgarden",
+  "readme":   "https://github.com/jpgorganizer/ioBroker.smartgarden/blob/master/README.md",
+  "keywords": [
+    "ioBroker",
+    "gardena",
+    "gardena smart system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpgorganizer/ioBroker.smartgarden.git"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^2.0.0"
+  },
+  "devDependencies": {
+   "@iobroker/testing": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/jpgorganizer/ioBroker.smartgarden/issues"
   },
-  "bundleDependencies": false,
-  "dependencies": {
-    "@iobroker/adapter-core": "^2.0.0"
-  },
-  "deprecated": false,
-  "description": "an adapter for Gardena smart system",
-  "devDependencies": {
-    "@iobroker/testing": "^2.0.0",
-    "@types/chai": "^4.2.7",
-    "@types/chai-as-promised": "^7.1.2",
-    "@types/gulp": "^4.0.6",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^10.17.13",
-    "@types/proxyquire": "^1.3.28",
-    "@types/sinon": "^7.5.1",
-    "@types/sinon-chai": "^3.2.3",
-    "axios": "^0.19.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "eslint": "^6.8.0",
-    "gulp": "^4.0.2",
-    "mocha": "^6.2.2",
-    "proxyquire": "^2.1.3",
-    "sinon": "^8.0.1",
-    "sinon-chai": "^3.4.0"
-  },
-  "homepage": "https://github.com/jpgorganizer/ioBroker.smartgarden",
-  "keywords": [
-    "template",
-    "gardena",
-    "smart"
-  ],
-  "license": "GPL-3.0",
   "main": "main.js",
-  "name": "iobroker.smartgarden",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jpgorganizer/ioBroker.smartgarden.git"
-  },
+  "license": "CC BY-NC-SA4.0",
   "scripts": {
     "lint": "eslint",
     "test": "npm run test:js && npm run test:package",
@@ -76,5 +35,4 @@
     "test:package": "mocha test/package --exit",
     "test:unit": "mocha test/unit --exit"
   },
-  "version": "0.0.1"
 }

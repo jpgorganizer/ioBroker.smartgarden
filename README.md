@@ -1,14 +1,14 @@
 ![Logo](admin/smartgarden.png)
 # ioBroker.smartgarden
 
+![Number of Installations](http://iobroker.live/badges/smartgarden-installed.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
-[![Dependency Status](https://img.shields.io/david/jpgorganizer/iobroker.smartgarden.svg)](https://david-dm.org/jpgorganizer/iobroker.smartgarden)
-[![Known Vulnerabilities](https://snyk.io/test/github/jpgorganizer/ioBroker.smartgarden/badge.svg)](https://snyk.io/test/github/jpgorganizer/ioBroker.smartgarden)
 
 [![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)](https://nodei.co/npm/iobroker.smartgarden/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/jpgorganizer/ioBroker.smartgarden/master.svg)](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden)
+[![Build Status](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden)
+
 
 ## smartgarden adapter for ioBroker
 

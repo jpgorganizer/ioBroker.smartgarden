@@ -10,7 +10,7 @@
 [![Build Status](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden)
 
 
-## smartgarden adapter for ioBroker
+## ioBroker smartgarden adapter for GARDENA smart system
 
 an adapter for Gardena smart system using official GARDENA smart system API and service
 

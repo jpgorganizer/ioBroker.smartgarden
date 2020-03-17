@@ -1,4 +1,5 @@
-![Logo](admin/smartgarden.png)
+![Logo](admin/smartgarden.png) <!-- .element height="50%" width="50%" style="border: 0; background: None; box-shadow: None" -->
+
 # ioBroker.smartgarden
 
 ![Number of Installations](http://iobroker.live/badges/smartgarden-installed.svg) 

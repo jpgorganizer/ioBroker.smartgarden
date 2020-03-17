@@ -1,4 +1,4 @@
-![Logo](admin/smartgarden.png) <!-- .element height="50%" width="50%" style="border: 0; background: None; box-shadow: None" -->
+![Logo](admin/smartgarden.png) <!-- .element height="80%" width="80%" style="border: 0; background: None; box-shadow: None" -->
 
 # ioBroker.smartgarden
 

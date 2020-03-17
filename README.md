@@ -35,9 +35,9 @@ To get both things please go to https://developer.1689.cloud/docs#/docs/getting-
 1. Edit username and password  in instance configuration
 1. Edit application key in instance configuration
 1. Verify default values of other settings in instance configuration. For most users the following values will be ok.
-  - ping frequence: 150 seconds
-  - factor for token validity: 1.001
-  - testvariable: false (just for debugging/development)
+    - ping frequence: 150 seconds
+    - factor for token validity: 1.001
+    - testvariable: false (just for debugging/development)
 
 Please note that password and application key are encoded and stored within the adapter 
 and become just decoded for authentication with the Gardena application host.
@@ -73,12 +73,14 @@ Special datapoints:
 
   This datapoint shows two different states for the mower: MOWING or NOT_MOWING. Depending on the value
   in datapoint activity_value this datapoint is set.
+  
   If activity_value is 
     - OK_CHARGING (The mower has to be mowing but insufficient charge level keeps it in the charging station.)
     - PARKED_TIMER (The mower is parked according to timer, will start again at configured time.)
     - PARKED_PARK_SELECTED (The mower is parked until further notice.)
     - PARKED_AUTOTIMER (The mower skips mowing because of insufficient grass height.)
     - PAUSED (The mower in a waiting state with hatch closed.)
+	
   activity_value_i  is set to NOT_MOWING.
 
   If activity_value is 
@@ -88,6 +90,7 @@ Special datapoints:
     - OK_LEAVING (The mower is leaving charging station.)
     - NONE (No activity is happening, perhaps due to an error.)
 	- all other values
+	
   activity_value_i  is set to NOT_MOWING.
 
 - duration_leftover_i

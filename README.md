@@ -163,6 +163,9 @@ This is a private project. I am not in any association with Gardena or Husqvarna
 ### 0.0.1
 * (jpgorganizer) initial release
 
+## Credits
+smartgarden logo: http://www.freepik.com Designed by Freepik
+
 ## License
  Copyright (c) 2020 jpgorganizer, https://github.com/jpgorganizer 
  

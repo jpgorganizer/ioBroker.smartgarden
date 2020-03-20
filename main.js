@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.1 (23. January 2020)
- * SVN:                 $Rev: 1923 $
+ * Version:             0.2 (23. January 2020)
+ * SVN:                 $Rev: 1976 $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,7 +12,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 1923 $';
+const mainrev ='$Rev: 1976 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -31,6 +31,26 @@ function decrypt(adapter, key, value) {
 	adapter.log.debug("client_secret decrypt ready");
 	return result;
 }
+
+function make_printable(value) {
+	var result = '';
+	let startval = 4;
+	let i;
+	
+	for (i=0; i < startval && i < value.length; ++i) {
+		result += value[i];
+	}
+	
+	for(i = startval ; i < value.length; ++i) {
+		if (value[i] !== '.' && value[i] !== '-' ) {
+			result += 'X';
+		} else {
+			result += value[i];
+		}
+	}
+	return result;
+}
+
 
 function main(adapter) {
     // Initialize your adapter here
@@ -56,7 +76,8 @@ function main(adapter) {
 				that.log.error(err);
 				that.setState('info.connection', false, true);
 			} else {
-				that.log.info('connected ... auth_data=' + auth_data);
+				// don't write auth data to log, just first few chars
+				that.log.info('connected ... auth_data=' + make_printable(auth_data));
 				that.setState('info.connection', true, true);
 				gardena_api.get_locations(function(err, locations) {
 					if(err) {

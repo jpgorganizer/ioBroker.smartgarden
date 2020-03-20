@@ -61,7 +61,7 @@ Supported devices:
 For controlling the device use datapoint
 - duration_value
 
-  Change this datapoint to start the power socket. 
+  Change this datapoint to start the mower. 
   - To start for a defined time  set the value to the value in seconds (please use multiples of 60)
   - for automatic operation set string START_DONT_OVERRIDE
   - to cancel the current operation and return to charging station use string PARK_UNTIL_NEXT_TASK
@@ -120,7 +120,7 @@ All other datapoints are just for monitoring and information.
 For controlling the device use datapoint
 - duration_value
 
-  Change this datapoint to start the power socket. 
+  Change this datapoint to start the valve. 
   - To start for a defined time  set the value to the value in seconds (please use multiples of 60)
   - to cancel the current watering and continue with the schedule use string STOP_UNTIL_NEXT_TASK
   - to skip automatic operation until specified time, the currently active operation might or might not be cancelled (depends on device model) use string PAUSE 
@@ -140,7 +140,7 @@ All other datapoints are just for monitoring and information.
 For controlling the device use datapoint
 - duration_value
 
-  Change this datapoint to start the mower. 
+  Change this datapoint to start the power socket. 
   - To start for a defined time  set the value to the value in seconds (please use multiples of 60)
   - To switch on the device forever please use the string START_OVERRIDE.
   - To stop the device use STOP_UNTIL_NEXT_TASK.

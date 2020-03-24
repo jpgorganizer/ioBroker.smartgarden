@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.2 (23. January 2020)
- * SVN:                 $Rev: 1976 $
+ * Version:             0.2.0 (23. January 2020)
+ * SVN:                 $Rev: 1983 $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,7 +12,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 1976 $';
+const mainrev ='$Rev: 1983 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -22,13 +22,24 @@ const utils = require('@iobroker/adapter-core');
 const fs = require('fs');
 const gardena_api = require(__dirname + '/lib/api');
 
+/*
+ * writes string val to adapter.log.info if level is lower or equal to global level 
+ * @param    adapter  adapter object
+ * @param    level    log integer 1..3, level for this string val
+ * @param    val      val string 
+ * @return   random integer from 0 to max-1 
+ */
+function loginfo(adapter, level, val) {
+	if (level >=1 && level <=3 && level <= adapter.config.logLevel) {
+		adapter.log.info(val);
+	}
+}
 
-function decrypt(adapter, key, value) {
+function decrypt(key, value) {
 	let result = "";
 	for (let i = 0; i < value.length; ++i) {
 		result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
 	}
-	adapter.log.debug("client_secret decrypt ready");
 	return result;
 }
 
@@ -60,11 +71,11 @@ function main(adapter) {
     
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // this.config:
-    adapter.log.info('config authenticaton_host: ' + adapter.config.authentication_host);
-    adapter.log.info('config smart_host: ' + adapter.config.smart_host);
-    //adapter.log.info('config gardena_api_key: ' + adapter.config.gardena_api_key);
-    //adapter.log.info('config gardena_username: ' + adapter.config.gardena_username);
-    //adapter.log.info('config gardena_password: ' + adapter.config.gardena_password);
+    loginfo(adapter, 1, 'config authenticaton_host: ' + adapter.config.authentication_host);
+    loginfo(adapter, 1, 'config smart_host: ' + adapter.config.smart_host);
+    //loginfo(adapter, 1, 'config gardena_api_key: ' + adapter.config.gardena_api_key);
+    //loginfo(adapter, 1, 'config gardena_username: ' + adapter.config.gardena_username);
+    //loginfo(adapter, 1, 'config gardena_password: ' + adapter.config.gardena_password);
 
 	let that = adapter;
 	
@@ -77,14 +88,14 @@ function main(adapter) {
 				that.setState('info.connection', false, true);
 			} else {
 				// don't write auth data to log, just first few chars
-				that.log.info('connected ... auth_data=' + make_printable(auth_data));
+				loginfo(that, 1, 'connected ... auth_data=' + make_printable(auth_data));
 				that.setState('info.connection', true, true);
 				gardena_api.get_locations(function(err, locations) {
 					if(err) {
 						that.log.error(err);
 						that.setState('info.connection', false, true);
 					} else {
-						that.log.info('get_locations ... locations=' + locations);
+						loginfo(that, 1, 'get_locations ... locations=' + locations);
 						that.setState('info.connection', true, true);
 		
 						gardena_api.get_websocket(function(err, websocket) {
@@ -92,7 +103,7 @@ function main(adapter) {
 								that.log.error(err);
 								that.setState('info.connection', false, true);
 							} else {
-								that.log.info('get_websocket ... websocket=' + websocket);
+								loginfo(that, 1, 'get_websocket ... websocket=' + websocket);
 								that.setState('info.connection', true, true);
 							}
 						});
@@ -142,20 +153,20 @@ class Smartgarden extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
 	async onReady() {	 
-		this.log.debug("ready - Adapter: databases are connected and adapter received configuration");
-		this.log.silly("config.gardena_password verschlüsselt: " + this.config.gardena_password);
-		this.log.silly("config.gardena_api_key verschlüsselt: " + this.config.gardena_api_key);
+		loginfo(this, 1, "ready - Adapter: databases are connected and adapter received configuration");
+		loginfo(this, 2, "config.gardena_password verschlüsselt: " + this.config.gardena_password);
+		loginfo(this, 2, "config.gardena_api_key verschlüsselt: " + this.config.gardena_api_key);
 		
 		this.getForeignObject("system.config", (err, obj) => {
 			if (obj && obj.native && obj.native.secret) {
 				//noinspection JSUnresolvedVariable
-				this.config.gardena_password = decrypt(this, obj.native.secret, this.config.gardena_password);
-				this.config.gardena_api_key = decrypt(this, obj.native.secret, this.config.gardena_api_key);
+				this.config.gardena_password = decrypt(obj.native.secret, this.config.gardena_password);
+				this.config.gardena_api_key = decrypt(obj.native.secret, this.config.gardena_api_key);
 			} else {
 				//noinspection JSUnresolvedVariable
 				let defkey = '"ZgAsfr5s6gFe87jJOx4M';
-				this.config.gardena_password = decrypt(this, defkey, this.config.gardena_password);
-				this.config.gardena_api_key = decrypt(this, defkey, this.config.gardena_api_key);
+				this.config.gardena_password = decrypt(defkey, this.config.gardena_password);
+				this.config.gardena_api_key = decrypt(defkey, this.config.gardena_api_key);
 			}
 			main(this);
 		});	 
@@ -169,7 +180,7 @@ class Smartgarden extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            this.log.info('cleaned everything up...');
+            loginfo(this, 1, 'cleaned everything up...');
             callback();
         } catch (e) {
             callback();
@@ -184,10 +195,10 @@ class Smartgarden extends utils.Adapter {
     onObjectChange(id, obj) {
         if (obj) {
             // The object was changed
-            this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
+            loginfo(this, 2, `object ${id} changed: ${JSON.stringify(obj)}`);
         } else {
             // The object was deleted
-            this.log.info(`object ${id} deleted`);
+            loginfo(this, 2, `object ${id} deleted`);
         }
     }
 
@@ -199,13 +210,13 @@ class Smartgarden extends utils.Adapter {
     onStateChange(id, state) {
         if (state.ack === false) {
             // The state was changed by user
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-			this.log.info(`---> Command should be sent to device`);
+            loginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			loginfo(this, 3, `---> Command should be sent to device`);
 			gardena_api.sendCommand(id, state);
         } else {
 			// The state was changed by user
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-			this.log.info(`---> State change by device`);
+            loginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			loginfo(this, 3, `---> State change by device`);
         }
     }
 }

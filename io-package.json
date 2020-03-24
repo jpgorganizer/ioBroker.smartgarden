@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "smartgarden",
-        "version": "0.0.1",
+        "version": "0.2.0",
         "news": {
+            "0.2.0": {
+                "en": "rework leftovertimer, improved error handling, improved logging",
+                "de": "Fehlerbehandlung erweitert, Loggingmechanismen erweitert",
+				"ru": "переработать остатки, улучшена обработка ошибок, улучшено ведение журнала",
+				"pt": "refazer o leftovertimer, tratamento aprimorado de erros, registro aprimorado",
+				"nl": "leftovertimer opnieuw bewerken, verbeterde foutafhandeling, verbeterde logboekregistratie",
+				"fr": "retravailler leftovertimer, gestion améliorée des erreurs, journalisation améliorée",
+				"it": "rielaborare gli avanzi di tempo, una migliore gestione degli errori, una migliore registrazione",
+				"es": "retrabajar el temporizador izquierdo, manejo mejorado de errores, registro mejorado",
+				"pl": "przerób resztkowy limit czasu, poprawiona obsługa błędów, ulepszone logowanie",
+				"zh-cn": "返工剩余计时器，改进了错误处理，改进了日志记录"
+            },
             "0.0.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
@@ -30,17 +42,17 @@
             "zh-cn": "智慧花园"
         },
         "desc": {
-            "en": "an adapter for Gardena smart system",
-            "de": "ein Adapter für Gardena Smart System",
-            "ru": "адаптер для умной системы Gardena",
-            "pt": "um adaptador para o sistema inteligente Gardena",
-            "nl": "een adapter voor Gardena smart system",
-            "fr": "un adaptateur pour système intelligent Gardena",
-            "it": "un adattatore per il sistema intelligente Gardena",
-            "es": "un adaptador para el sistema inteligente de Gardena",
-            "pl": "adapter do inteligentnego systemu Gardena",
-            "zh-cn": "Gardena智能系统的适配器"
-        },
+			"en": "an adapter for Gardena smart system",
+			"de": "ein Adapter für das Gardena Smart System",
+			"ru": "адаптер для умной системы Gardena",
+			"pt": "um adaptador para o sistema inteligente Gardena",
+			"nl": "een adapter voor Gardena smart system",
+			"fr": "un adaptateur pour système intelligent Gardena",
+			"it": "un adattatore per il sistema intelligente Gardena",
+			"es": "un adaptador para el sistema inteligente de Gardena",
+			"pl": "adapter do inteligentnego systemu Gardena",
+			"zh-cn": "Gardena智能系统的适配器"
+		},
         "authors": [
             "jpgorganizer"
         ],
@@ -75,7 +87,8 @@
         "gardena_password": "password",
 		"gardena_ping_frequence": "120",
 		"gardena_authtoken_factor": "1.001",
-		"useTestVariable": "true"
+		"useTestVariable": "true",
+		"logLevel":"3"
     },
     "objects": [],
     "instanceObjects": [

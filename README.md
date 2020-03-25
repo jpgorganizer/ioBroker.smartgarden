@@ -198,12 +198,18 @@ This is a private project. I am not in any association with Gardena or Husqvarna
   
 ## Changelog
 
+### 0.3.0
+* (jpgorganizer) 
+  - create all states read/write 
+  - error TypeError: Cannot read property 'val' of null with useTestVariable fixed
+
+
 ### 0.2.0
 * (jpgorganizer) 
   - **IMPORTANT** : datapoint for MOWER control (command) changed from  `duration_value` to `activity_control_i`
   - rework leftovertimer 
   - improved error handling
-  - improved logging
+  - improved logging (see  loglevel in adapter configurations)
 
 ### 0.0.1
 * (jpgorganizer) initial release

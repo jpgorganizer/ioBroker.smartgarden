@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.2.0 (23. January 2020)
- * SVN:                 $Rev: 1983 $
+ * Version:             0.3.0 (23. January 2020)
+ * SVN:                 $Rev: 1990 $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,7 +12,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 1983 $';
+const mainrev ='$Rev: 1990 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -21,6 +21,7 @@ const utils = require('@iobroker/adapter-core');
 // Load your modules here, e.g.:
 const fs = require('fs');
 const gardena_api = require(__dirname + '/lib/api');
+let configUseTestVariable;
 
 /*
  * writes string val to adapter.log.info if level is lower or equal to global level 
@@ -76,7 +77,7 @@ function main(adapter) {
     //loginfo(adapter, 1, 'config gardena_api_key: ' + adapter.config.gardena_api_key);
     //loginfo(adapter, 1, 'config gardena_username: ' + adapter.config.gardena_username);
     //loginfo(adapter, 1, 'config gardena_password: ' + adapter.config.gardena_password);
-
+	configUseTestVariable = adapter.config.useTestVariable;
 	let that = adapter;
 	
 	gardena_api.setAdapter(adapter);
@@ -113,8 +114,8 @@ function main(adapter) {
 		}
 	);
 	
-	if (adapter.config.useTestVariable === 'true') {
-		adapter.setObjectAsync('testVariable', {
+	if (configUseTestVariable === 'true') {
+		adapter.setObjectNotExists('testVariable', {
 			type: 'state',
 			common: {
 				name: 'testVariable',
@@ -125,6 +126,7 @@ function main(adapter) {
 			},
 			native: {},
 		});
+		adapter.setState('testVariable', true);
 	}
 	
 	// all states changes inside the adapters namespace are subscribed

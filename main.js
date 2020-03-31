@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.3.0 (23. January 2020)
- * SVN:                 $Rev: 1990 $
+ * Version:             0.4.0 (23. January 2020)
+ * SVN:                 $Rev: 2001 $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,11 +12,12 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 1990 $';
+const mainrev ='$Rev: 2001 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const ju = require('@jpgorganizer/utils').utils;
 
 // Load your modules here, e.g.:
 const fs = require('fs');
@@ -24,29 +25,17 @@ const gardena_api = require(__dirname + '/lib/api');
 let configUseTestVariable;
 
 /*
- * writes string val to adapter.log.info if level is lower or equal to global level 
- * @param    adapter  adapter object
- * @param    level    log integer 1..3, level for this string val
- * @param    val      val string 
- * @return   random integer from 0 to max-1 
+ * makes values printable which shouldn't be printed in logs; 
+ * keeps first 4 chars, '.' and '-' are kept, all other chars get X
+ * e.g. apikeys or similar
+ * @param    value      value string 
+ * @return   printable value
  */
-function loginfo(adapter, level, val) {
-	if (level >=1 && level <=3 && level <= adapter.config.logLevel) {
-		adapter.log.info(val);
-	}
-}
-
-function decrypt(key, value) {
-	let result = "";
-	for (let i = 0; i < value.length; ++i) {
-		result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
-	}
-	return result;
-}
-
 function make_printable(value) {
 	var result = '';
 	let startval = 4;
+	let keepchar=['.', '-'];
+	let replace = 'X';
 	let i;
 	
 	for (i=0; i < startval && i < value.length; ++i) {
@@ -54,8 +43,8 @@ function make_printable(value) {
 	}
 	
 	for(i = startval ; i < value.length; ++i) {
-		if (value[i] !== '.' && value[i] !== '-' ) {
-			result += 'X';
+		if (keepchar.indexOf(value[i]) === -1) {
+			result += replace;
 		} else {
 			result += value[i];
 		}
@@ -72,11 +61,11 @@ function main(adapter) {
     
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // this.config:
-    loginfo(adapter, 1, 'config authenticaton_host: ' + adapter.config.authentication_host);
-    loginfo(adapter, 1, 'config smart_host: ' + adapter.config.smart_host);
-    //loginfo(adapter, 1, 'config gardena_api_key: ' + adapter.config.gardena_api_key);
-    //loginfo(adapter, 1, 'config gardena_username: ' + adapter.config.gardena_username);
-    //loginfo(adapter, 1, 'config gardena_password: ' + adapter.config.gardena_password);
+    ju.adapterloginfo(adapter, 1, 'config authenticaton_host: ' + adapter.config.gardena_authentication_host);
+    ju.adapterloginfo(adapter, 1, 'config smart_host: ' + adapter.config.smart_host);
+    //ju.adapterloginfo(adapter, 1, 'config gardena_api_key: ' + adapter.config.gardena_api_key);
+    //ju.adapterloginfo(adapter, 1, 'config gardena_username: ' + adapter.config.gardena_username);
+    //ju.adapterloginfo(adapter, 1, 'config gardena_password: ' + adapter.config.gardena_password);
 	configUseTestVariable = adapter.config.useTestVariable;
 	let that = adapter;
 	
@@ -89,14 +78,14 @@ function main(adapter) {
 				that.setState('info.connection', false, true);
 			} else {
 				// don't write auth data to log, just first few chars
-				loginfo(that, 1, 'connected ... auth_data=' + make_printable(auth_data));
+				ju.adapterloginfo(that, 1, 'connected ... auth_data=' + make_printable(auth_data));
 				that.setState('info.connection', true, true);
 				gardena_api.get_locations(function(err, locations) {
 					if(err) {
 						that.log.error(err);
 						that.setState('info.connection', false, true);
 					} else {
-						loginfo(that, 1, 'get_locations ... locations=' + locations);
+						ju.adapterloginfo(that, 1, 'get_locations ... locations=' + locations);
 						that.setState('info.connection', true, true);
 		
 						gardena_api.get_websocket(function(err, websocket) {
@@ -104,7 +93,7 @@ function main(adapter) {
 								that.log.error(err);
 								that.setState('info.connection', false, true);
 							} else {
-								loginfo(that, 1, 'get_websocket ... websocket=' + websocket);
+								ju.adapterloginfo(that, 1, 'get_websocket ... websocket=' + websocket);
 								that.setState('info.connection', true, true);
 							}
 						});
@@ -114,7 +103,7 @@ function main(adapter) {
 		}
 	);
 	
-	if (configUseTestVariable === 'true') {
+	if (configUseTestVariable === true) {
 		adapter.setObjectNotExists('testVariable', {
 			type: 'state',
 			common: {
@@ -155,20 +144,20 @@ class Smartgarden extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
 	async onReady() {	 
-		loginfo(this, 1, "ready - Adapter: databases are connected and adapter received configuration");
-		loginfo(this, 2, "config.gardena_password verschlüsselt: " + this.config.gardena_password);
-		loginfo(this, 2, "config.gardena_api_key verschlüsselt: " + this.config.gardena_api_key);
+		ju.adapterloginfo(this, 1, "ready - Adapter: databases are connected and adapter received configuration");
+		ju.adapterloginfo(this, 2, "config.gardena_password verschlüsselt: " + this.config.gardena_password);
+		ju.adapterloginfo(this, 2, "config.gardena_api_key verschlüsselt: " + this.config.gardena_api_key);
 		
 		this.getForeignObject("system.config", (err, obj) => {
 			if (obj && obj.native && obj.native.secret) {
 				//noinspection JSUnresolvedVariable
-				this.config.gardena_password = decrypt(obj.native.secret, this.config.gardena_password);
-				this.config.gardena_api_key = decrypt(obj.native.secret, this.config.gardena_api_key);
+				this.config.gardena_password = ju.decrypt(obj.native.secret, this.config.gardena_password);
+				this.config.gardena_api_key = ju.decrypt(obj.native.secret, this.config.gardena_api_key);
 			} else {
 				//noinspection JSUnresolvedVariable
 				let defkey = '"ZgAsfr5s6gFe87jJOx4M';
-				this.config.gardena_password = decrypt(defkey, this.config.gardena_password);
-				this.config.gardena_api_key = decrypt(defkey, this.config.gardena_api_key);
+				this.config.gardena_password = ju.decrypt(defkey, this.config.gardena_password);
+				this.config.gardena_api_key = ju.decrypt(defkey, this.config.gardena_api_key);
 			}
 			main(this);
 		});	 
@@ -182,7 +171,7 @@ class Smartgarden extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            loginfo(this, 1, 'cleaned everything up...');
+            ju.adapterloginfo(this, 1, 'cleaned everything up...');
             callback();
         } catch (e) {
             callback();
@@ -197,10 +186,10 @@ class Smartgarden extends utils.Adapter {
     onObjectChange(id, obj) {
         if (obj) {
             // The object was changed
-            loginfo(this, 2, `object ${id} changed: ${JSON.stringify(obj)}`);
+            ju.adapterloginfo(this, 2, `object ${id} changed: ${JSON.stringify(obj)}`);
         } else {
             // The object was deleted
-            loginfo(this, 2, `object ${id} deleted`);
+            ju.adapterloginfo(this, 2, `object ${id} deleted`);
         }
     }
 
@@ -212,13 +201,13 @@ class Smartgarden extends utils.Adapter {
     onStateChange(id, state) {
         if (state.ack === false) {
             // The state was changed by user
-            loginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
-			loginfo(this, 3, `---> Command should be sent to device`);
+            ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			ju.adapterloginfo(this, 3, `---> Command should be sent to device`);
 			gardena_api.sendCommand(id, state);
         } else {
 			// The state was changed by user
-            loginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
-			loginfo(this, 3, `---> State change by device`);
+            ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			ju.adapterloginfo(this, 3, `---> State change by device`);
         }
     }
 }

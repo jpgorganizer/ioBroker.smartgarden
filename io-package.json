@@ -1,8 +1,24 @@
 {
     "common": {
         "name": "smartgarden",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "news": {
+			"0.4.0": {
+				"en": "data types of (nearly) all datapoints adjusted for compliance with ioBroker guidance",
+				"de": "Datentypen von (fast) allen Datenpunkten, die an die ioBroker-Richtlinien angepasst sind",
+				"ru": "типы данных (почти) всех точек данных, откорректированные для соответствия руководству ioBroker",
+				"pt": "tipos de dados de (quase) todos os pontos de dados ajustados para conformidade com as orientações do ioBroker",
+				"nl": "gegevenstypen van (bijna) alle datapunten aangepast voor naleving van ioBroker-richtlijnen",
+				"fr": "types de données de (presque) tous les points de données ajustés pour la conformité aux directives ioBroker",
+				"it": "tipi di dati di (quasi) tutti i punti dati adeguati per la conformità con la guida ioBroker",
+				"es": "Tipos de datos de (casi) todos los puntos de datos ajustados para cumplir con la guía de ioBroker",
+				"pl": "typy danych (prawie) wszystkich punktów danych dostosowane do zgodności z wytycznymi ioBroker",
+				"zh-cn": "（几乎）所有数据点的数据类型进行了调整，以符合ioBroker指南"
+			},
+			"0.3.0": {
+				"en": "create all states read/write, error TypeError with useTestVariable fixed",
+				"de": "alle Status read/write, TypeError bei useTestVariable behoben"
+			},
             "0.2.0": {
                 "en": "rework leftovertimer, improved error handling, improved logging",
                 "de": "Fehlerbehandlung erweitert, Loggingmechanismen erweitert",
@@ -75,19 +91,21 @@
         "materialize": true,
         "dependencies": [
             {
-                "js-controller": ">=1.4.2"
+                "js-controller": ">=1.4.2",
+				"@jpgorganizer/utils": ">=1.0.0"
             }
         ]
     },
     "native": {
         "smart_host": "https://api.smart.gardena.dev",
-		"authentication_host": "https://api.authentication.husqvarnagroup.dev",
+		"gardena_authentication_host": "https://api.authentication.husqvarnagroup.dev",
 		"gardena_api_key": "12345678-1234-1234-1234-1234567890ab", 
         "gardena_username": "mail@me.com",
         "gardena_password": "password",
 		"gardena_ping_frequence": "120",
 		"gardena_authtoken_factor": "1.001",
-		"useTestVariable": "true",
+		"useTestVariable": true,
+		"preDefineStates": false,
 		"logLevel":"3"
     },
     "objects": [],

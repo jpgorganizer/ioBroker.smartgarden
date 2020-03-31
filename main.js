@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.4.0 (23. January 2020)
- * SVN:                 $Rev: 2001 $
+ * Version:             0.4.1 (23. January 2020)
+ * SVN:                 $Rev: 2010 $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,7 +12,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2001 $';
+const mainrev ='$Rev: 2010 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter

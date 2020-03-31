@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "smartgarden",
-        "version": "0.4.0",
+        "version": "0.4.1",
         "news": {
+				"0.4.1": {
+				"en": "Dependency get's resolved now"
+			},
 			"0.4.0": {
 				"en": "data types of (nearly) all datapoints adjusted for compliance with ioBroker guidance",
 				"de": "Datentypen von (fast) allen Datenpunkten, die an die ioBroker-Richtlinien angepasst sind",

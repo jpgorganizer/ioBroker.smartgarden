@@ -209,9 +209,13 @@ This is a private project. I am not in any association with Gardena or Husqvarna
 
   
 ## Changelog
+### 0.4.1
+* (jpgorganizer) 
+  - Dependency get's resolved now
+  
 ### 0.4.0
 * (jpgorganizer) 
-  - **NOTE**: with this version an additional dependency is necessary at runtime. If it does not get installed together with the installation of this adapter, please install seperately with `npm install https://github.com/jpgorganizer/ioBroker.utils` 
+  - **NOTE**: with this version an additional dependency is necessary at runtime. If it does not get installed together with the installation of this adapter, please install seperately with `npm install https://github.com/jpgorganizer/ioBroker.utils` or `npm i @jpgorganizer/utils`
   - **NOTE**: you **must delete all states** of the adapter instance to install this release and please check your application carefully for necessary adjustments regarding type/role changes (see below) 
   - data types of (nearly) all datapoints adjusted for compliance with ioBroker guidance: 
     * states now have special ioBroker type and role instead of former `string`/`text` where applicable, e.g. `number`/`value.battery` for `batteryLevel_value` (Issue https://github.com/jpgorganizer/ioBroker.smartgarden/issues/3)

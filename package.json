@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.0.0",
-	"@jpgorganizer/ioBroker.utils": "^1.0.0"
+	"@jpgorganizer/iobroker.utils": "^1.0.0"
   },
   "deprecated": false,
   "description": "an adapter for Gardena smart system",

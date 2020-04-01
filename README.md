@@ -209,6 +209,10 @@ This is a private project. I am not in any association with Gardena or Husqvarna
 
   
 ## Changelog
+### 0.4.2
+* (jpgorganizer) 
+  - error missing SENSOR data fixed
+
 ### 0.4.1
 * (jpgorganizer) 
   - Dependency get's resolved now

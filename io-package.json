@@ -1,138 +1,613 @@
 {
-    "common": {
-        "name": "smartgarden",
-        "version": "0.4.1",
-        "news": {
-				"0.4.1": {
-				"en": "Dependency get's resolved now"
-			},
-			"0.4.0": {
-				"en": "data types of (nearly) all datapoints adjusted for compliance with ioBroker guidance",
-				"de": "Datentypen von (fast) allen Datenpunkten, die an die ioBroker-Richtlinien angepasst sind",
-				"ru": "типы данных (почти) всех точек данных, откорректированные для соответствия руководству ioBroker",
-				"pt": "tipos de dados de (quase) todos os pontos de dados ajustados para conformidade com as orientações do ioBroker",
-				"nl": "gegevenstypen van (bijna) alle datapunten aangepast voor naleving van ioBroker-richtlijnen",
-				"fr": "types de données de (presque) tous les points de données ajustés pour la conformité aux directives ioBroker",
-				"it": "tipi di dati di (quasi) tutti i punti dati adeguati per la conformità con la guida ioBroker",
-				"es": "Tipos de datos de (casi) todos los puntos de datos ajustados para cumplir con la guía de ioBroker",
-				"pl": "typy danych (prawie) wszystkich punktów danych dostosowane do zgodności z wytycznymi ioBroker",
-				"zh-cn": "（几乎）所有数据点的数据类型进行了调整，以符合ioBroker指南"
-			},
-			"0.3.0": {
-				"en": "create all states read/write, error TypeError with useTestVariable fixed",
-				"de": "alle Status read/write, TypeError bei useTestVariable behoben"
-			},
-            "0.2.0": {
-                "en": "rework leftovertimer, improved error handling, improved logging",
-                "de": "Fehlerbehandlung erweitert, Loggingmechanismen erweitert",
-				"ru": "переработать остатки, улучшена обработка ошибок, улучшено ведение журнала",
-				"pt": "refazer o leftovertimer, tratamento aprimorado de erros, registro aprimorado",
-				"nl": "leftovertimer opnieuw bewerken, verbeterde foutafhandeling, verbeterde logboekregistratie",
-				"fr": "retravailler leftovertimer, gestion améliorée des erreurs, journalisation améliorée",
-				"it": "rielaborare gli avanzi di tempo, una migliore gestione degli errori, una migliore registrazione",
-				"es": "retrabajar el temporizador izquierdo, manejo mejorado de errores, registro mejorado",
-				"pl": "przerób resztkowy limit czasu, poprawiona obsługa błędów, ulepszone logowanie",
-				"zh-cn": "返工剩余计时器，改进了错误处理，改进了日志记录"
-            },
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
-            }
-        },
-        "title": "smartGarden",
-        "titleLang": {
-            "en": "smartGarden",
-            "de": "smartGarden",
-            "ru": "smartGarden",
-            "pt": "smartGarden",
-            "nl": "SmartGarden",
-            "fr": "smartGarden",
-            "it": "smartGarden",
-            "es": "smartGarden",
-            "pl": "smartGarden",
-            "zh-cn": "智慧花园"
-        },
-        "desc": {
-			"en": "an adapter for Gardena smart system",
-			"de": "ein Adapter für das Gardena Smart System",
-			"ru": "адаптер для умной системы Gardena",
-			"pt": "um adaptador para o sistema inteligente Gardena",
-			"nl": "een adapter voor Gardena smart system",
-			"fr": "un adaptateur pour système intelligent Gardena",
-			"it": "un adattatore per il sistema intelligente Gardena",
-			"es": "un adaptador para el sistema inteligente de Gardena",
-			"pl": "adapter do inteligentnego systemu Gardena",
-			"zh-cn": "Gardena智能系统的适配器"
-		},
-        "authors": [
-            "jpgorganizer"
-        ],
-        "keywords": [
-            "template",
-            "gardena",
-            "smart"
-        ],
-        "license": "CC BY-NC-SA4.0",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "smartgarden.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/jpgorganizer/ioBroker.smartgarden/master/admin/smartgarden.png",
-        "readme": "https://github.com/jpgorganizer/ioBroker.smartgarden/blob/master/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "garden",
-        "compact": true,
-        "materialize": true,
-        "dependencies": [
-            {
-                "js-controller": ">=1.4.2",
-				"@jpgorganizer/utils": ">=1.0.0"
-            }
-        ]
+  "common": {
+    "name": "smartgarden",
+    "version": "0.4.2",
+    "news": {
+      "0.4.2": {
+        "en": "error missing SENSOR data fixed"
+      },
+      "0.4.1": {
+        "en": "Dependency get's resolved now"
+      },
+      "0.4.0": {
+        "en": "data types of (nearly) all datapoints adjusted for compliance with ioBroker guidance",
+        "de": "Datentypen von (fast) allen Datenpunkten, die an die ioBroker-Richtlinien angepasst sind",
+        "ru": "типы данных (почти) всех точек данных, откорректированные для соответствия руководству ioBroker",
+        "pt": "tipos de dados de (quase) todos os pontos de dados ajustados para conformidade com as orientações do ioBroker",
+        "nl": "gegevenstypen van (bijna) alle datapunten aangepast voor naleving van ioBroker-richtlijnen",
+        "fr": "types de données de (presque) tous les points de données ajustés pour la conformité aux directives ioBroker",
+        "it": "tipi di dati di (quasi) tutti i punti dati adeguati per la conformità con la guida ioBroker",
+        "es": "Tipos de datos de (casi) todos los puntos de datos ajustados para cumplir con la guía de ioBroker",
+        "pl": "typy danych (prawie) wszystkich punktów danych dostosowane do zgodności z wytycznymi ioBroker",
+        "zh-cn": "（几乎）所有数据点的数据类型进行了调整，以符合ioBroker指南"
+      },
+      "0.3.0": {
+        "en": "create all states read/write, error TypeError with useTestVariable fixed",
+        "de": "alle Status read/write, TypeError bei useTestVariable behoben"
+      },
+      "0.2.0": {
+        "en": "rework leftovertimer, improved error handling, improved logging",
+        "de": "Fehlerbehandlung erweitert, Loggingmechanismen erweitert",
+        "ru": "переработать остатки, улучшена обработка ошибок, улучшено ведение журнала",
+        "pt": "refazer o leftovertimer, tratamento aprimorado de erros, registro aprimorado",
+        "nl": "leftovertimer opnieuw bewerken, verbeterde foutafhandeling, verbeterde logboekregistratie",
+        "fr": "retravailler leftovertimer, gestion améliorée des erreurs, journalisation améliorée",
+        "it": "rielaborare gli avanzi di tempo, una migliore gestione degli errori, una migliore registrazione",
+        "es": "retrabajar el temporizador izquierdo, manejo mejorado de errores, registro mejorado",
+        "pl": "przerób resztkowy limit czasu, poprawiona obsługa błędów, ulepszone logowanie",
+        "zh-cn": "返工剩余计时器，改进了错误处理，改进了日志记录"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
     },
-    "native": {
-        "smart_host": "https://api.smart.gardena.dev",
-		"gardena_authentication_host": "https://api.authentication.husqvarnagroup.dev",
-		"gardena_api_key": "12345678-1234-1234-1234-1234567890ab", 
-        "gardena_username": "mail@me.com",
-        "gardena_password": "password",
-		"gardena_ping_frequence": "120",
-		"gardena_authtoken_factor": "1.001",
-		"useTestVariable": true,
-		"preDefineStates": false,
-		"logLevel":"3"
+    "title": "smartGarden",
+    "titleLang": {
+      "en": "smartGarden",
+      "de": "smartGarden",
+      "ru": "smartGarden",
+      "pt": "smartGarden",
+      "nl": "SmartGarden",
+      "fr": "smartGarden",
+      "it": "smartGarden",
+      "es": "smartGarden",
+      "pl": "smartGarden",
+      "zh-cn": "智慧花园"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "an adapter for Gardena smart system",
+      "de": "ein Adapter für das Gardena Smart System",
+      "ru": "адаптер для умной системы Gardena",
+      "pt": "um adaptador para o sistema inteligente Gardena",
+      "nl": "een adapter voor Gardena smart system",
+      "fr": "un adaptateur pour système intelligent Gardena",
+      "it": "un adattatore per il sistema intelligente Gardena",
+      "es": "un adaptador para el sistema inteligente de Gardena",
+      "pl": "adapter do inteligentnego systemu Gardena",
+      "zh-cn": "Gardena智能系统的适配器"
+    },
+    "authors": [
+      "jpgorganizer"
+    ],
+    "keywords": [
+      "template",
+      "gardena",
+      "smart"
+    ],
+    "license": "CC BY-NC-SA4.0",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "smartgarden.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/jpgorganizer/ioBroker.smartgarden/master/admin/smartgarden.png",
+    "readme": "https://github.com/jpgorganizer/ioBroker.smartgarden/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "garden",
+    "compact": true,
+    "materialize": true,
+    "dependencies": [
+      {
+        "js-controller": ">=1.4.2",
+        "@jpgorganizer/utils": ">=1.0.0"
+      }
     ]
+  },
+  "native": {
+    "smart_host": "https://api.smart.gardena.dev",
+    "gardena_authentication_host": "https://api.authentication.husqvarnagroup.dev",
+    "gardena_api_key": "12345678-1234-1234-1234-1234567890ab",
+    "gardena_username": "mail@me.com",
+    "gardena_password": "password",
+    "gardena_ping_frequence": "120",
+    "gardena_authtoken_factor": "1.001",
+    "useTestVariable": true,
+    "preDefineStates": false,
+    "predefstates": {
+      "SERVICE_COMMON": {
+        "name_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "info.name",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "batteryLevel_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "SENSOR"
+          ],
+          "commontype": "number",
+          "commonrole": "value.battery",
+          "commonwrite": false,
+          "unit": "%"
+        },
+        "batteryLevel_timestamp": {
+          "predefineForDevices": [
+            "MOWER",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "batterystate_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "batterystate_timestamp": {
+          "predefineForDevices": [
+            "MOWER",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "rfLinkLevel_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "number",
+          "commonrole": "value",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "rfLinkLevel_timestamp": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "serial_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "modelType_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "rfLinkstate_value": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "commonwrite": false,
+          "unit": "none"
+        },
+        "rfLinkstate_timestamp": {
+          "predefineForDevices": [
+            "MOWER",
+            "POWER_SOCKET",
+            "VALVE_SET",
+            "VALVE",
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "commonwrite": false,
+          "unit": "none"
+        }
+      },
+      "SERVICE_MOWER": {
+        "state_value": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "state_timestamp": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "activity_value": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "activity_timestamp": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_value": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_timestamp": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "operatingHours_value": {
+          "predefineForDevices": [
+            "MOWER"
+          ],
+          "commontype": "number^",
+          "commonrole": "value",
+          "unit": "none",
+          "commonwrite": false
+        }
+      },
+      "SERVICE_POWER_SOCKET": {
+        "state_value": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "state_timestamp": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "activity_value": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "activity_timestamp": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_value": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_timestamp": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "duration_value": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "unit": "none",
+          "commonwrite": true
+        },
+        "duration_timestamp": {
+          "predefineForDevices": [
+            "POWER_SOCKET"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        }
+      },
+      "SERVICE_SENSOR": {
+        "soilHumidity_value": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "number",
+          "commonrole": "value.humidity",
+          "unit": "%",
+          "commonwrite": false
+        },
+        "soilHumidity_timestamp": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "soilTemperature_value": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "number",
+          "commonrole": "value.temperature",
+          "unit": "°C",
+          "commonwrite": false
+        },
+        "soilTemperature_timestamp": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "ambientTemperature_value": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "number",
+          "commonrole": "value",
+          "unit": "°C",
+          "commonwrite": false
+        },
+        "ambientTemperature_timestamp": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lightIntensity_value": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "number",
+          "commonrole": "value.brightness",
+          "unit": "Lux",
+          "commonwrite": false
+        },
+        "lightIntensity_timestamp": {
+          "predefineForDevices": [
+            "SENSOR"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        }
+      },
+      "SERVICE_VALVE": {
+        "name_value": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "info.name",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "activity_value": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "activity_timestamp": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "state_value": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "state_timestamp": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_value": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_timestamp": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "duration_value": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "unit": "none",
+          "commonwrite": true
+        },
+        "duration_timestamp": {
+          "predefineForDevices": [
+            "VALVE"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        }
+      },
+      "SERVICE_VALVE_SET": {
+        "state_value": {
+          "predefineForDevices": [
+            "VALVE_SET"
+          ],
+          "commontype": "string",
+          "commonrole": "info.status",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "state_timestamp": {
+          "predefineForDevices": [
+            "VALVE_SET"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_value": {
+          "predefineForDevices": [
+            "VALVE_SET"
+          ],
+          "commontype": "string",
+          "commonrole": "text",
+          "unit": "none",
+          "commonwrite": false
+        },
+        "lastErrorCode_timestamp": {
+          "predefineForDevices": [
+            "VALVE_SET"
+          ],
+          "commontype": "string",
+          "commonrole": "date",
+          "unit": "none",
+          "commonwrite": false
+        }
+      }
+    },
+    "logLevel": "3"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }

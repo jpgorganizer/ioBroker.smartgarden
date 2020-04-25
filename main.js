@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.4.2 ($Date: 2020-04-01 16:53:44 +0200 (Mi, 01 Apr 2020) $)
- * SVN:                 $Rev: 2012 $
+ * Version:             0.5.0 
+ * SVN:                 $Rev: 2028 $ $Date: 2020-04-05 20:50:44 +0200 (So, 05 Apr 2020) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,7 +12,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2012 $';
+const mainrev ='$Rev: 2028 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -23,6 +23,7 @@ const ju = require('@jpgorganizer/utils').utils;
 const fs = require('fs');
 const gardena_api = require(__dirname + '/lib/api');
 let configUseTestVariable;
+let configUseMowerHistory;
 
 /*
  * makes values printable which shouldn't be printed in logs; 
@@ -67,6 +68,8 @@ function main(adapter) {
     //ju.adapterloginfo(adapter, 1, 'config gardena_username: ' + adapter.config.gardena_username);
     //ju.adapterloginfo(adapter, 1, 'config gardena_password: ' + adapter.config.gardena_password);
 	configUseTestVariable = adapter.config.useTestVariable;
+	configUseMowerHistory = adapter.config.useMowerHistory;
+	
 	let that = adapter;
 	
 	gardena_api.setAdapter(adapter);
@@ -103,6 +106,28 @@ function main(adapter) {
 		}
 	);
 	
+	if (configUseMowerHistory === true) {
+		
+		adapter.getState('info.saveMowingHistory', function (err, state) {
+			if (!err && state) {
+				if (state.val.length > 0) {
+					let mowHistory = JSON.parse(state.val);
+					gardena_api.setMowingHistory(mowHistory);
+				}
+			}
+		});
+		
+		adapter.getState('info.saveChargingHistory', function (err, state) {
+			if (!err && state) {
+				if (state.val.length > 0) {
+					let chargeHistory = JSON.parse(state.val);
+					gardena_api.setChargingHistory(chargeHistory);
+				}
+			}
+		});
+		
+	}
+
 	if (configUseTestVariable === true) {
 		adapter.setObjectNotExists('testVariable', {
 			type: 'state',
@@ -199,16 +224,18 @@ class Smartgarden extends utils.Adapter {
      * @param {ioBroker.State | null | undefined} state
      */
     onStateChange(id, state) {
-        if (state.ack === false) {
-            // The state was changed by user
-            ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
-			ju.adapterloginfo(this, 3, `---> Command should be sent to device`);
-			gardena_api.sendCommand(id, state);
-        } else {
-			// The state was changed by user
-            ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
-			ju.adapterloginfo(this, 3, `---> State change by device`);
-        }
+		if (state !== null && state !== undefined) {
+			if (state.ack === false) {
+				// The state was changed by user
+				ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
+				ju.adapterloginfo(this, 3, `---> Command should be sent to device`);
+				gardena_api.sendCommand(id, state);
+			} else {
+				// The state was changed by user
+				ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
+				ju.adapterloginfo(this, 3, `---> State change by device`);
+			}
+		}
     }
 }
 

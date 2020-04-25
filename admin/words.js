@@ -84,6 +84,30 @@ systemDictionary = {
     "pl": "Czynnik ważności tokena uwierzytelniającego",
     "zh-cn": "认证令牌有效性的因素"
   },
+  "useMowerHistory": {
+    "en": "use forecast for charging time and mower remaining time",
+    "de": "Verwenden Sie die Prognose für die Ladezeit und die verbleibende Zeit des Mähers",
+    "ru": "использовать прогноз для времени зарядки и оставшегося времени косилки",
+    "pt": "use a previsão para o tempo de carregamento e segure o tempo restante",
+    "nl": "gebruik voorspelling voor laadtijd en resterende tijd van maaier",
+    "fr": "utiliser les prévisions pour le temps de charge et le temps restant de la tondeuse",
+    "it": "utilizzare le previsioni per il tempo di ricarica e il tempo rimanente del tagliaerba",
+    "es": "use el pronóstico para el tiempo de carga y el tiempo restante de la segadora",
+    "pl": "użyj prognozy czasu ładowania i pozostałego czasu pracy kosiarki",
+    "zh-cn": "将预测用于充电时间和割草机剩余时间"
+  },
+  "MowerHistoryCycles": {
+    "en": "number of MOWER history cycles",
+    "de": "Anzahl der Zyklen in MOWER Historie",
+    "ru": "количество циклов истории MOWER",
+    "pt": "número de ciclos históricos do MOWER",
+    "nl": "aantal geschiedeniscycli van de MAAIER",
+    "fr": "nombre de cycles d'historique MOWER",
+    "it": "numero di cicli storici MOWER",
+    "es": "número de ciclos de historia de MOWER",
+    "pl": "liczba cykli historii KOSIARKI",
+    "zh-cn": "MOWER历史周期数"
+  },
   "useTestVariable": {
     "en": "testVariable: use test variable for debug",
     "de": "testVariable: testVariable für Debug Zwecke",
@@ -121,7 +145,7 @@ systemDictionary = {
     "zh-cn": "日志级别：0 =无日志，1 =一些日志，2 =更多日志，3 =所有日志"
   },
   "smart_host": {
-    "en": "Webservice Basis-URL (https://api.smart.gardena.dev)",
+    "en": "Webservice Base-URL (https://api.smart.gardena.dev)",
     "de": "Webservice Basis-URL (https://api.smart.gardena.dev)",
     "ru": "URL-адрес веб-сервиса (https://api.smart.gardena.dev)",
     "pt": "Base de Webservice URL (https://api.smart.gardena.dev)",

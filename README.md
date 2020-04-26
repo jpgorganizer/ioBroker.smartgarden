@@ -83,6 +83,7 @@ And of course you need a running ioBroker installation and you should own at lea
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [0.5.1](#051)
      * [0.5.0](#050)
      * [0.4.2](#042)
      * [0.4.1](#041)
@@ -96,7 +97,7 @@ And of course you need a running ioBroker installation and you should own at lea
 ## Installation
 
 Adapter is available 
-- at npm: Install with `npm install jpgorganizer.smartgarden` 
+- at npm: Install with `npm install iobroker.smartgarden` 
 - at GitHub under https://github.com/jpgorganizer/ioBroker.smartgarden. 
 An description how to install from GitHub is available 
 [here](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) (German language).
@@ -392,7 +393,7 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
 ### 0.5.0
 * (jpgorganizer) 
   - MOWER: forecast for remaining charging time and remaining mowing time 
-  integrated
+  integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
     DEVICE's and all SERVICE's has changed due to support of History adapter. 
 	(History adapter cannot handle id's with `%` (percent) character within id's, 
@@ -482,4 +483,4 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
  Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden.
  
 
-<!--- SVN: $Rev: 2074 $ $Date: 2020-04-26 12:13:36 +0200 (So, 26 Apr 2020) $ --->
+<!--- SVN: $Rev: 2077 $ $Date: 2020-04-26 17:35:53 +0200 (So, 26 Apr 2020) $ --->

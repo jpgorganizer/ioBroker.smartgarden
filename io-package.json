@@ -1,9 +1,14 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "0.5.0",
+    "version": "0.5.1",
+	"connectionType": "cloud",
+    "dataSource": "push",
     "news": {
-      "0.5.0": {
+      "0.5.1": {
+		"en": "some corrections"
+	  },
+	  "0.5.0": {
 		"en": "MOWER: forecast charging time and remaining time for mowing integrated; change names of ids",
 		"de": "MÄHER: Prognostizierte Ladezeit und verbleibende Mähzeit integriert",
 		"ru": "MOWER: прогнозируется время зарядки и оставшееся время для кошения",
@@ -14,7 +19,7 @@
 		"es": "SEGADORA: pronostique el tiempo de carga y el tiempo restante para cortar el césped integrado",
 		"pl": "KOSIARKA: zintegrowany przewidywany czas ładowania i pozostały czas koszenia",
 		"zh-cn": "MOWER：预测集成割草的充电时间和剩余时间"
-     },
+      },
       "0.4.2": {
         "en": "error missing SENSOR data fixed"
       },

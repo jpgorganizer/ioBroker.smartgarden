@@ -384,6 +384,11 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
 
   
 ## Changelog
+### 0.5.1
+* (jpgorganizer) 
+  - some corrections (sensor, typo)
+  - integration of travis-ci
+  
 ### 0.5.0
 * (jpgorganizer) 
   - MOWER: forecast for remaining charging time and remaining mowing time 
@@ -477,4 +482,4 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
  Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden.
  
 
-<!--- SVN: $Rev: 2070 $ $Date: 2020-04-25 19:10:00 +0200 (Sa, 25 Apr 2020) $ --->
+<!--- SVN: $Rev: 2074 $ $Date: 2020-04-26 12:13:36 +0200 (So, 26 Apr 2020) $ --->

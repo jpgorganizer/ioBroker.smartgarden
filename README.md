@@ -2,13 +2,14 @@
 
 # ioBroker.smartgarden
 
-![Number of Installations](http://iobroker.live/badges/smartgarden-installed.svg) 
+
+[![Installed](http://iobroker.live/badges/smartgarden-installed.svg)](http://iobroker.live/badges/smartgarden-installed.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
+[![Build Status](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden)
+[![Stable](http://iobroker.live/badges/smartgarden-stable.svg)](http://iobroker.live/badges/smartgarden-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)](https://nodei.co/npm/iobroker.smartgarden/)
-
-[![Build Status](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden)
 
 
 
@@ -30,7 +31,6 @@ The most important actions can be carried out with the adapter. It also
 offers the opportunity to implement your own ideas that are not possible 
 with the GARDENA app.
 
-<table border="0"><tr><td valign="top">  
 
 ## Supported devices
 
@@ -65,11 +65,11 @@ To get both things please go to
 And of course you need a running ioBroker installation and you should own at least one 
 [GARDENA smart device](#supported-devices).
 
-</td><td valign="top">
 
 ## Table of Contents
   * [Supported devices](#supported-devices)
   * [Requirements](#requirements)
+  * [Table of Contents](#table-of-contents)
   * [Installation](#installation)
   * [Setup adapter](#setup-adapter)
   * [Data points of the adapter](#data-points-of-the-adapter)
@@ -79,20 +79,21 @@ And of course you need a running ioBroker installation and you should own at lea
      * [For SERVICE_POWER_SOCKET](#for-service_power_socket)
      * [For SERVICE_SENSOR](#for-service_sensor)
      * [For SERVICE_COMMON](#for-service_common)
+  * [Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing)
+     * [What's the problem?](#whats-the-problem)
+	 * [What is being done?](#what-is-being-done)
+	 * [Basic behaviour -- WARNING](#basic-behaviour----warning)  
   * [Known Errors](#known-errors)
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [0.6.0](#060)
      * [0.5.1](#051)
      * [0.5.0](#050)
-     * [0.4.2](#042)
-     * [0.4.1](#041)
-     * [0.4.0](#040)
-     * [older versions](#030)
+     * [older versions](#042)
   * [Credits](#credits)
   * [License](#license)  
   
-</td></tr></table>
 
 ## Installation
 
@@ -106,33 +107,45 @@ An description how to install from GitHub is available
 
 1. Install the adapter
 2. Create an instance of the adapter
-3. Edit username and password in instance configuration
-4. Edit application key in instance configuration
-5. Verify default values of other settings and switch on/off options in 
-instance configuration. For most users the following values will be ok. 
-    - ping frequence: 150 seconds (default: 150)
-    - factor for token validity: 1.001 (default: 1.001)
-	- PreDefineStates: *(new in v0.4.0)* switch on or off (default: off), 
-	if switched on then all states of the GARDENA smart system API are 
-	created regardless if they are currently transmitted by GARDENA service 
-	or not.
-    - use forecast ... : *(new in v0.5.0)* switch forecast charging and 
-	mowing time of mower on/off: (default: off)
+3. Check and complete instance configuration
 
-      - number of mower history cycles: *(new in v0.5.0)* you can use 
-	  any number from 3 (minimum), but 10 (default) seems to be a good value; 
-	  only relevant if the above 'use forecast ...' is on
+   **If you change any value of those settings please restart your adapter.**
 
-    - testVariable: on/off (default: off), just for debugging/development
-    - Loglevel: 0 (default)  [0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs]
-	- Authentication host URL: `https://api.authentication.husqvarnagroup.dev` (default)
-	- Webservice Base-URL: `https://api.smart.gardena.dev` (default)
+   3.1 Edit username, password and application key in main instance configuration 
 
-Please note that password and application key are encoded and stored within 
-the adapter and become just decoded for authentication with the GARDENA 
-application host.
+      | Parameter | Description |
+      | - | - |
+      | user name | user name for GARDENA smart system |
+      | password | corresponding password |
+      | API Key |  API Key (application key), e.g. under [Requirements](#requirements) | 
+
+   Please note that password and application key are encoded and stored within 
+   the adapter and become just decoded for authentication with the GARDENA 
+   application host.
+
+   3.2 Verify default values of miscellaneous settings and switch on/off options in 
+   instance configuration. For most users the default values will be ok.
+   
+      | Parameter | Description |
+      | - | - |
+      | pre-define states | pre-define all states of Gardena API regardless they are currently transmitted; switch on or off; if switched on then all states of the GARDENA smart system API are created regardless if they are currently transmitted by GARDENA service or not; default: off; *(new in v0.4.0)*|
+      | forecast | use forecast for charging time and mower remaining time; switch forecast charging and mowing time of mower on/off; default: off; *(new in v0.5.0)*|
+      | cycles | number of MOWER history cycles; you can use any number from 3 (minimum), but 10 (default) seems to be a good value; only relevant if the above *'forecast'* is on; *(new in v0.5.0)*|
+      | irrigation check| Use the check whether irrigation is allowed while mowing; switch on/off; default: off; *(new in v0.6.0)*|
+    
+   3.3 Verify default values of systems settings and switch on/off options in 
+   instance configuration. **Most users will not have to change anything on this tab.**
+
+      | Parameter | Description |
+      | - | - |
+      | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
+      | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150|
+      | auth factor  | Factor for validity of authentication token; default: 1.001 |
+      | Auth-URL| Authentication host URL; default: (https://api.authentication.husqvarnagroup.dev)|
+      | Base-URL| Webservice Base-URL; default: (https://api.smart.gardena.dev)|
+      | TestVar | use test variable for debug; switch on/off; default: off|	 
+   
   
-If you change the value of those settings please restart your adapter.
   
 ## Data points of the adapter
 The adapter is designed to monitor and control GARDENA smart system devices. 
@@ -164,6 +177,11 @@ If you need more information about the data points please have a look at
 [https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger). 
 There you'll find a description for every data point; except for those which 
 are marked as data points of the adapter and not of the GARDENA smart system API.
+  
+The adapter creates its own data points for various features / options when 
+the feature is selected. These data points are not automatically deleted 
+when the feature is deselected. If you no longer need these data points, 
+they must be deleted by hand.  
   
 ### For SERVICE_MOWER
 #### Controlling
@@ -220,6 +238,8 @@ Special data points:
 
   Those data points show an forecast for remaining charging and mowing time 
   in seconds of the mower. 
+  They are only created when the function is selected in the 
+  instance configuration.
 
   To forecast a value an history of the last few charging and mowing cycles 
   is saved in two states `info.saveMowingHistory` and 
@@ -313,6 +333,16 @@ To control the device use data point
   not be cancelled (depends on device model) use string `PAUSE` 
   - to restore automatic operation if it was paused use string `UNPAUSE`
   
+- `irrigationWhileMowing_allowed_i` and `irrigationWhileMowing_mowerDefinition_i` 
+
+  *This data points are generated by the adapter and are not required due to the GARDENA smart system API.*
+
+  Those data points give control over the feature *Irrigation not allowed while mowing*. 
+  They are only created when the function is selected in the 
+  instance configuration.
+  For description of this feature see chapter 
+  [Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing).
+  
 #### Monitoring
 
 All other data points are just for monitoring and information.
@@ -366,7 +396,87 @@ All data points are just for monitoring and information.
 The `SERVICE_COMMON` provides general information about the device. 
 Description is integrated into description of other SERVICE_... where necessary.
 
+## Irrigation not allowed while mowing
 
+### What's the problem?
+
+If you have both a mower and an irrigation system with pop-up sprinklers, 
+there is a risk that your mower will run into a pop-up sprinkler while the 
+irrigation is running and damage it or cause damage itself.
+
+To prevent this, the irrigation system or individual valves should be 
+switched off when the mower is mowing.
+
+### What is being done?
+
+With this function it is possible to stop irrigation when the mower is 
+on the lawn. This can be defined separately for each valve. 
+
+One or more mowers can be defined for each valve, for which the valve is 
+not allowed to be open while the mower is mowing. 
+Basically, the mower has priority over irrigation, i.e. if the conflict 
+arises that the mower is mowing and a valve is open, the valve is closed 
+and a corresponding warning is set.
+
+Additionally it is possible to define that a valve should never open 
+regardless of a mower. E.g. can be used if a valve or the pipe 
+behind it is damaged.
+
+The whole check can be switched on or off in instance configuration with 
+paraneter *irrigation check*.
+
+There are three data points available for each `SERVICE_VALVE`. 
+They are used for configuration and for reporting warnings.
+
+
+  | data point | writeable | Description of data points | 
+  | - | - | - |
+  |`irrigationWhileMowing_allowed_i` | yes |set to `false` if it should be checked if irrigation is allowed while the mower is mowing on the lawn, `true` otherwise | 
+  |`irrigationWhileMowing_mowerDefinition_i`| yes | one or more id's of `SERVICE_MOWER` which get checked. Format of mower id see below. There is a special code `IRRIGATION_FORBIDDEN` meaning that the valve is always closed regardless of a mower. If more than one id should be set then separate them by semicolon (`;`).|
+  |`irrigationWhileMowing_warningCode_i`| no | warning code is set if valve opens. Possible warning codes see next table. If more than one warning is set, codes are concatenated with `+` (e.g. `STOPPED+UNKNOWN_MOWER`).|
+   
+* ***mower id format***
+  
+  `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
+  
+  You can copy this mower id from the objects tab of ioBroker, see red arrow in the following picture.
+  ![mower id](mowerid.jpg) 
+
+* ***warning codes*** </br> 
+  | warning code| description| 
+  | - | - |
+  |  `NO_WARNING` |no warning, valve opened |
+  |  `UNKNOWN_MOWER` |wrong mower id in `irrigationWhileMowing_mowerDefinition_i`|
+  |  `STOPPED` |valve automatically closed because mower is mowing |
+  |  `FORBIDDEN` |valve closed because special code `IRRIGATION_FORBIDDEN` is set in data point `irrigationWhileMowing_mowerDefinition_i`|
+
+This function is runnig every time when
+- a valve becomes opened or
+- a mower starts mowing 
+
+It doesn't run when you change the values in the data points listed above. 
+That means: if there is a conflict situation and you change 
+`irrigationWhileMowing_allowed_i` from `true` to `false`, the conflict is not
+recognized and the conflict will continue. The same behaviour applies to a 
+change of `irrigationWhileMowing_mowerDefinition_i`.
+  
+### Basic behaviour -- WARNING
+
+This feature cannot prevent a valve from opening while the mower is 
+mowing. This can e.g. done manually through the GARDENA app or 
+automatically through a schedule.
+
+This function can only close the valve as quickly as possible in the 
+event of a conflict. And a conflict may not be recognized either. 
+So it can happen that water is let through. 
+**E.g. it cannot be prevented that the pop-up sprinklers extend and that the 
+mower hits the pop-up sprinklers**, but the likelihood that this will 
+happen has been minimized.
+**So it is up to your application to make sure that this conflict will 
+never happen.**
+
+
+  
 ## Known Errors
 - the received value for mower data point `operationHours_value` is different 
 to that reported in GARDENA app. It's currently not clear  which one is correct.
@@ -385,6 +495,15 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
 
   
 ## Changelog
+### 0.6.0
+* (jpgorganizer) 
+  - new feature *check Irrigation not allowed while mowing*, 
+    for detailed description see 
+	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
+    e.g. [Issue 5](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/5)
+  - rework instance config dialog
+  - improvement of documentation
+
 ### 0.5.1
 * (jpgorganizer) 
   - some corrections (sensor, typo)
@@ -483,4 +602,4 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
  Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden.
  
 
-<!--- SVN: $Rev: 2077 $ $Date: 2020-04-26 17:35:53 +0200 (So, 26 Apr 2020) $ --->
+<!--- SVN: $Rev: 2101 $ $Date: 2020-05-03 11:42:16 +0200 (So, 03 Mai 2020) $ --->

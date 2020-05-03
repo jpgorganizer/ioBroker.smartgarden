@@ -3,8 +3,8 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * Version:             0.5.0 
- * SVN:                 $Rev: 2028 $ $Date: 2020-04-05 20:50:44 +0200 (So, 05 Apr 2020) $
+ * Version:             0.6.0 
+ * SVN:                 $Rev: 2095 $ $Date: 2020-05-02 17:54:10 +0200 (Sa, 02 Mai 2020) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -12,7 +12,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2028 $';
+const mainrev ='$Rev: 2095 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -231,7 +231,7 @@ class Smartgarden extends utils.Adapter {
 				ju.adapterloginfo(this, 3, `---> Command should be sent to device`);
 				gardena_api.sendCommand(id, state);
 			} else {
-				// The state was changed by user
+				// The state was changed by system
 				ju.adapterloginfo(this, 2, `state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				ju.adapterloginfo(this, 3, `---> State change by device`);
 			}

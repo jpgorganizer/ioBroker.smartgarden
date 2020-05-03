@@ -1,10 +1,22 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "0.5.1",
+    "version": "0.6.0",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "0.6.0": {
+		"en": "feature *check irrigation allowed while mowing*",
+		"de": "Funktion *Bewässerung beim Mähen prüfen* integriert ",
+		"ru": "функция *проверка полива допускается при скашивании* встроенный ",
+		"pt": "recurso *verifique a irrigação permitida enquanto corta* integrado ",
+		"nl": "functie *check irrigatie toegestaan tijdens maaien* geïntegreerd ",
+		"fr": "caractéristique *vérifier l'irrigation autorisée pendant la tonte* intégré ",
+		"it": "caratteristica *verifica l'irrigazione consentita durante la falciatura* integrata ",
+		"es": "característica *comprobar el riego permitido durante el corte* integrado ",
+		"pl": "funkcja *sprawdź nawadnianie dozwolone podczas koszenia* zintegrowane ",
+		"zh-cn": "特点*修剪时允许灌溉*集成"
+	  },
       "0.5.1": {
 		"en": "some corrections"
 	  },
@@ -124,6 +136,7 @@
     "gardena_authtoken_factor": "1.001",
     "useTestVariable": false,
     "preDefineStates": false,
+	"useIrrigationAllowedWhileMowing": false,
 	"useMowerHistory": false,
 	"MowerHistoryCycles": "10",
     "logLevel": "0"

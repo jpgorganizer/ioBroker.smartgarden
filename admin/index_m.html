@@ -101,11 +101,12 @@
 		<div class="row">
 		<div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s5"><a href="#tab-main"    class="translate active">main settings</a></li>
-                    <li class="tab col s5"><a href="#tab-miscellaneous" class="translate">miscellaneous</a></li>
+                    <li class="tab col s3"><a href="#tab-main"    class="translate active">main settings</a></li>
+                    <li class="tab col s3"><a href="#tab-miscellaneous" class="translate">miscellaneous</a></li>
+					<li class="tab col s3"><a href="#tab-system" class="translate">system_settings</a></li>
                 </ul>
         </div>
-		<div id="tab-main" class="col s12 page">
+		<div id="tab-main" class="col s6 page">
 			<div class="row">
 				<div class="col s12 m4 l2">
 					<img src="smartgarden.png" class="logo">
@@ -121,33 +122,66 @@
 					<label for="gardena_username" class="translate active">gardena_username</label>
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="password" class="value" id="gardena_password" />
 					<label for="gardena_password" class="translate active">gardena_password</label>
 				</div>
 			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					<input class="value" id="gardena_authentication_host" type="text">
-					<label for="gardena_authentication_host" class="translate active">gardena_authentication_host</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					<input class="value" id="smart_host" type="text">
-					<label for="smart_host" class="translate active">smart_host</label>
-				</div>
-			</div>
+
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="password" class="value" id="gardena_api_key" type="text">
 					<label for="gardena_api_key" class="translate active">gardena_api_key</label>
 				</div>
 			</div>
+
+        </div>
+        <div id="tab-miscellaneous" class="col s12 page">
+			<div class="row">
+				<div class="col s12 m4 l2">
+					<img src="smartgarden.png" class="logo">
+				</div>
+			</div>
+ 			<div class="row">
+				<div class="input-field col s6">
+					<input class="value" id="preDefineStates" type="checkbox">
+					<label for="preDefineStates" class="translate active">preDefineStates</label>
+				</div>
+			</div>
+
+ 			<div class="row">
+				<div class="input-field col s6">
+					<input class="value" id="useMowerHistory" type="checkbox">
+					<label for="useMowerHistory" class="translate active">useMowerHistory</label>
+				</div>
+				<div class="input-field col s3">
+					<input class="value" id="MowerHistoryCycles" type="number"  min="3" >
+					<label for="MowerHistoryCycles" class="translate active">MowerHistoryCycles</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input class="value" id="useIrrigationAllowedWhileMowing" type="checkbox">
+					<label for="useIrrigationAllowedWhileMowing" class="translate active">useIrrigationAllowedWhileMowing</label>
+				</div>
 			</div>
         </div>
-        <div id="tab-miscellaneous" class="col s12 m12 l12 page">
+        <div id="tab-system" class="col s12 page">
+ 			<div class="row">
+				<div class="col s12 m4 l2">
+					<img src="smartgarden.png" class="logo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input class="value" id="logLevel" type="text">
+					<label for="logLevel" class="translate active">logLevel</label>
+				</div>
+			</div>
+			
 			<div class="row">
 				<div class="input-field col s6">
 					<input class="value" id="gardena_ping_frequence" type="text">
@@ -158,35 +192,29 @@
 					<label for="gardena_authtoken_factor" class="translate active">gardena_authtoken_factor</label>
 				</div>
 			</div>
- 			<div class="row">
+		
+			<div class="row">
 				<div class="input-field col s6">
-					<input class="value" id="preDefineStates" type="checkbox">
-					<label for="preDefineStates" class="translate active">preDefineStates</label>
+					<input class="value" id="gardena_authentication_host" type="text">
+					<label for="gardena_authentication_host" class="translate active">gardena_authentication_host</label>
 				</div>
 			</div>
- 			<div class="row">
+
+			<div class="row">
 				<div class="input-field col s6">
-					<input class="value" id="useMowerHistory" type="checkbox">
-					<label for="useMowerHistory" class="translate active">useMowerHistory</label>
-				</div>
-				<div class="input-field col s6">
-					<input class="value" id="MowerHistoryCycles" type="number"  min="3" >
-					<label for="MowerHistoryCycles" class="translate active">MowerHistoryCycles</label>
+					<input class="value" id="smart_host" type="text">
+					<label for="smart_host" class="translate active">smart_host</label>
 				</div>
 			</div>
- 			<div class="row">
-				<div class="input-field col s6">
-					<input class="value" id="logLevel" type="text">
-					<label for="logLevel" class="translate active">logLevel</label>
-				</div>
-			</div>
+
 			<div class="row">
 				<div class="input-field col s6">
 					<input class="value" id="useTestVariable" type="checkbox">
 					<label for="useTestVariable" class="translate active">useTestVariable</label>
 				</div>
 			</div>
-        </div>
+
+		</div>
 		</div>
     </div>
 

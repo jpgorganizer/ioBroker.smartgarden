@@ -497,7 +497,7 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
 ## Changelog
 ### 0.6.0
 * (jpgorganizer) 
-  - new feature *check Irrigation not allowed while mowing*, 
+  - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
     e.g. [Issue 5](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/5)
@@ -602,4 +602,4 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
  Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden.
  
 
-<!--- SVN: $Rev: 2101 $ $Date: 2020-05-03 11:42:16 +0200 (So, 03 Mai 2020) $ --->
+<!--- SVN: $Rev: 2102 $ $Date: 2020-05-03 11:50:59 +0200 (So, 03 Mai 2020) $ --->

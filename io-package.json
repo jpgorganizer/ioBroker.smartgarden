@@ -1,10 +1,22 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "0.6.0",
+    "version": "1.0.0",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.0": {
+		"en": "no functional change",
+		"de": "keine funktionale Änderung",
+		"ru": "нет функциональных изменений",
+		"pt": "nenhuma mudança funcional",
+		"nl": "geen functionele verandering",
+		"fr": "aucun changement fonctionnel",
+		"it": "nessun cambiamento funzionale",
+		"es": "sin cambio funcional",
+		"pl": "bez zmian funkcjonalnych",
+		"zh-cn": "功能不变"
+	  },
       "0.6.0": {
 		"en": "feature *check irrigation allowed while mowing*",
 		"de": "Funktion *Bewässerung beim Mähen prüfen* integriert ",

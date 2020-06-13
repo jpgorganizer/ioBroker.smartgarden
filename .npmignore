@@ -17,6 +17,18 @@ appveyor.yaml
 .eslintrc.json
 .eslintrc.js
 
+# jpgorganizer special files
+github-badge-cache-buster.sh
+leo*.*
+*.bat
+box.xls
+p*.html
+save_*.*
+apitestscript/
+apitestscript/*.*
+.vscode/
+.vscode/*.*
+
 # npm package files
 iobroker.*.tgz
 package-lock.json

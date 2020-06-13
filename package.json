@@ -1,7 +1,7 @@
 {
   "name": "iobroker.smartgarden",
   "author": "jpgorganizer",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "license": "CC-BY-NC-SA-4.0",
   "homepage": "https://github.com/jpgorganizer/ioBroker.smartgarden",
   "keywords": [
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.0.0",
-	"@jpgorganizer/utils": "^1.1.0",
+	"@jpgorganizer/utils": "^1.2.0",
 	"request": "^2.88.0",
 	"ws": "^7.2.5"
   },

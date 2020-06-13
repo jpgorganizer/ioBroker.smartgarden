@@ -2,7 +2,6 @@
 
 # ioBroker.smartgarden
 
-
 [![Installed](http://iobroker.live/badges/smartgarden-installed.svg)](http://iobroker.live/badges/smartgarden-installed.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
@@ -17,7 +16,7 @@
 ## ioBroker smartgarden adapter for GARDENA smart system
 
 An adapter for GARDENA smart system using official 
-[GARDENA smart system API](https://developer.1689.cloud/apis/GARDENA+smart+system+API#/general) 
+[GARDENA smart system API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) 
 and service. 
 
 The adapter allows the development of an application (e.g. with VIS) that 
@@ -52,27 +51,42 @@ To use this adapter you need two things:
 1. an GARDENA application key
  
 To get both things please go to 
-[https://developer.1689.cloud/docs#/docs/getting-started/](https://developer.1689.cloud/docs#/docs/getting-started/). 
+[https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/). 
+
+![getting_application_key](getting_application_key.jpg) 
+
 
 **Note:**
-  - If you already have a Husqvarna Automower® Connect or a GARDENA smart system account, 
-    you can Sign In with that account and continue with Step 2, Create application to get 
-	the application key.
+  - If you already have a Husqvarna Automower® Connect or a 
+    GARDENA smart system account, you can Sign In with that account and 
+	continue with Step 2, Create application to get the application key.
+	
+	---
+	
+	***And it's almost certain that you have an account.** Please use the
+	same account as for the GARDENA app in which your GARDENA devices are 
+	registered. Otherwise you will not 	get access to your devices.*
+	
+	---
+	
   - Make sure that you've connected the application (from Step 2) to the API's
     - Authentication API ***and***
 	- GARDENA smart system API.
 
-And of course you need a running ioBroker installation and you should own at least one 
-[GARDENA smart device](#supported-devices).
+And of course you need a running ioBroker installation and you should own 
+at least one [GARDENA smart device](#supported-devices).
 
 
 ## Table of Contents
+  * [ioBroker smartgarden adapter for GARDENA smart system](#iobroker-smartgarden-adapter-for-gardena-smart-system)
   * [Supported devices](#supported-devices)
   * [Requirements](#requirements)
   * [Table of Contents](#table-of-contents)
   * [Installation](#installation)
   * [Setup adapter](#setup-adapter)
+  * [Getting support](#getting-support)
   * [Data points of the adapter](#data-points-of-the-adapter)
+     * [General things to know about data points](#general-things-to-know-about-data-points)
      * [For SERVICE_MOWER](#for-service_mower)
      * [For SERVICE_VALVE_SET](#for-service_valve_set)
      * [For SERVICE_VALVE](#for-service_valve)
@@ -83,14 +97,14 @@ And of course you need a running ioBroker installation and you should own at lea
      * [What's the problem?](#whats-the-problem)
 	 * [What is being done?](#what-is-being-done)
 	 * [Basic behaviour -- WARNING](#basic-behaviour----warning)  
-  * [Known Errors](#known-errors)
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [1.0.0](#100)
      * [0.6.0](#060)
      * [0.5.1](#051)
      * [0.5.0](#050)
-     * [older versions](#042)
+     * [previous versions](#042)
   * [Credits](#credits)
   * [License](#license)  
   
@@ -111,7 +125,8 @@ An description how to install from GitHub is available
 
    **If you change any value of those settings please restart your adapter.**
 
-   3.1 Edit username, password and application key in main instance configuration 
+   3.1 Edit username, password and application key in main instance 
+   configuration 
 
       | Parameter | Description |
       | - | - |
@@ -123,8 +138,9 @@ An description how to install from GitHub is available
    the adapter and become just decoded for authentication with the GARDENA 
    application host.
 
-   3.2 Verify default values of miscellaneous settings and switch on/off options in 
-   instance configuration. For most users the default values will be ok.
+   3.2 Verify default values of miscellaneous settings and switch on/off 
+   options in instance configuration. For most users the default values 
+   will be ok.
    
       | Parameter | Description |
       | - | - |
@@ -141,11 +157,15 @@ An description how to install from GitHub is available
       | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
       | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150|
       | auth factor  | Factor for validity of authentication token; default: 1.001 |
-      | Auth-URL| Authentication host URL; default: (https://api.authentication.husqvarnagroup.dev)|
-      | Base-URL| Webservice Base-URL; default: (https://api.smart.gardena.dev)|
+      | Auth-URL| Authentication host URL; default: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
+      | Base-URL| Webservice Base-URL; default: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
       | TestVar | use test variable for debug; switch on/off; default: off|	 
    
   
+## Getting support
+
+To get help read this README and the [FAQ](FAQ.md) carefully. If you need further support please join
+the [ioBroker forum thread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system).
   
 ## Data points of the adapter
 The adapter is designed to monitor and control GARDENA smart system devices. 
@@ -158,11 +178,11 @@ Where `<servicelink_type>` is a type description for the
 device, for example MOWER or VALVE and `<id>` is a (encoded) 
 GARDENA device id used by the API. 
 See description for ServiceLink at 
-[https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger).
+[https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
 
-Controlling/monitoring for each device is possible via the `SERVICE_<servicelink_type>` 
-listed in the following table. The `SERVICE_COMMON` provides general information 
-about the device.
+Controlling/monitoring for each device is possible via the 
+`SERVICE_<servicelink_type>` listed in the following table. The 
+`SERVICE_COMMON` provides general information about the device.
 
   | device | SERVICE_<servicelink_type> |
   | - | - |
@@ -174,14 +194,28 @@ about the device.
   | smart Sensor | SERVICE_SENSOR and SERVICE_COMMON |
 
 If you need more information about the data points please have a look at 
-[https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger). 
+[https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger). 
 There you'll find a description for every data point; except for those which 
-are marked as data points of the adapter and not of the GARDENA smart system API.
+are marked as data points of the adapter and not of the 
+GARDENA smart system API.
   
 The adapter creates its own data points for various features / options when 
 the feature is selected. These data points are not automatically deleted 
 when the feature is deselected. If you no longer need these data points, 
 they must be deleted by hand.  
+
+### General things to know about data points
+
+The adapter doesn't change any values transmitted by the GARDENA smart API. 
+The only thing that is done (from version 1.0.0) is to check the type of *timestamps* 
+and *numbers*.
+
+| check for | description |
+| - | - |
+| timestamps | all timestamps are given in UTC; if a received timestamp is not a valid timestamp, `01 Jan 1970 00:00:00Z` (Unix time zero) is used instead. So if you see this date/time please report. |
+| numbers | if a number is not a valid number, `-1` is used instead.  So if you see this number please report. |
+
+
   
 ### For SERVICE_MOWER
 #### Controlling
@@ -248,10 +282,11 @@ Special data points:
   This feature can be switched on/off in adapter instance configuration 
   along with the number of saved charging and mowing cycles in history. 
 
-  To put this function into operation, please make sure that at least one 
-  cycle of mowing and loading runs without errors (e.g. not interrupted 
-  manually). It is better if at least three runs are completed without 
-  errors. This function tries to recognize the normal case and initially 
+  To put this function into operation, **please make sure that at least one 
+  cycle of mowing and charging runs without errors (e.g. not interrupted 
+  manually or sensor control).** It is better if at least three runs are 
+  completed without errors. 
+  This function tries to recognize the normal case and initially 
   assumes that the next process is a normal case. If this is faulty, then 
   this faulty run is regarded as a normal case and the runs that then pass 
   through normally as a fault case. If there is an error during the run, 
@@ -285,8 +320,9 @@ Special data points:
 
   Please pay special attention to data point `lastErrorCode_value`. 
   A description of possible values can be found at 
-  https://developer.1689.cloud/apis/GARDENA+smart+system+API#/swagger, 
+  https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger, 
   see "MowerService - lastErrorCode"
+  
 
 ### For SERVICE_VALVE_SET
 #### Controlling
@@ -326,18 +362,19 @@ To control the device use data point
     |GARDENA smart Pump | 36000 (10 hours) |
     |GARDENA smart Water Control | 36000 (10 hours) |
     
-  - to cancel the current watering and continue with the schedule use string 
+  - To cancel the current watering and continue with the schedule use string 
   `STOP_UNTIL_NEXT_TASK`
-  - to skip automatic operation until specified time, the currently active 
-  operation might or might 
-  not be cancelled (depends on device model) use string `PAUSE` 
-  - to restore automatic operation if it was paused use string `UNPAUSE`
+  - To skip automatic operation until specified time, the currently active 
+    operation might or might not be cancelled (depends on device model) use string 
+    `PAUSE_<number_of_seconds>`, e.g. `PAUSE_86400` to pause for 24 hours
+  - To restore automatic operation if it was paused use string `UNPAUSE`
   
 - `irrigationWhileMowing_allowed_i` and `irrigationWhileMowing_mowerDefinition_i` 
 
   *This data points are generated by the adapter and are not required due to the GARDENA smart system API.*
 
-  Those data points give control over the feature *Irrigation not allowed while mowing*. 
+  Those data points give control over the feature 
+  *Irrigation not allowed while mowing*. 
   They are only created when the function is selected in the 
   instance configuration.
   For description of this feature see chapter 
@@ -368,6 +405,10 @@ To control the device use data point
   (please use multiples of 60)
   - To switch on the device forever please use the string `START_OVERRIDE`.
   - To stop the device use `STOP_UNTIL_NEXT_TASK`.
+  - To skip automatic operation until specified time. The currently active operation 
+    will NOT be cancelled. use string `PAUSE_<number_of_seconds>`, 
+    e.g. `PAUSE_86400` to pause for 24 hours (please use multiples of 60)
+  - To restore automatic operation if it was paused use string `UNPAUSE`
 
 #### Monitoring
 
@@ -378,7 +419,7 @@ Special data point:
 
   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
   
-  The value describes the number of minutes till the power socket is shut off.  
+  The value describes the number of minutes till the power socket is shut off. 
     - An integer, one (`1`) or more.
     - `null` if undefined
   
@@ -394,7 +435,9 @@ All data points are just for monitoring and information.
 ### For SERVICE_COMMON
 
 The `SERVICE_COMMON` provides general information about the device. 
-Description is integrated into description of other SERVICE_... where necessary.
+Description is integrated into description of other SERVICE_... where 
+necessary.
+
 
 ## Irrigation not allowed while mowing
 
@@ -404,7 +447,7 @@ If you have both a mower and an irrigation system with pop-up sprinklers,
 there is a risk that your mower will run into a pop-up sprinkler while the 
 irrigation is running and damage it or cause damage itself.
 
-To prevent this, the irrigation system or individual valves should be 
+To prevent this, the irrigation system or better individual valves should be 
 switched off when the mower is mowing.
 
 ### What is being done?
@@ -439,7 +482,9 @@ They are used for configuration and for reporting warnings.
   
   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
   
-  You can copy this mower id from the objects tab of ioBroker, see red arrow in the following picture.
+  You can copy this mower id from the objects tab of ioBroker, 
+  see red arrow in the following picture.
+  
   ![mower id](mowerid.jpg) 
 
 * ***warning codes*** </br> 
@@ -475,32 +520,44 @@ happen has been minimized.
 **So it is up to your application to make sure that this conflict will 
 never happen.**
 
-
-  
-## Known Errors
-- the received value for mower data point `operationHours_value` is different 
-to that reported in GARDENA app. It's currently not clear  which one is correct.
-
 ## Wishes for data points
 
-This adapter reports every value as a data point that is supplied via the 
+This adapter reports **every value** as a data point that is supplied via the 
 GARDENA smart system API. If someone wants more values, please contact GARDENA 
 and inform them that this value will also be included in the API. To do this, 
 please go to ***Contact us & Leave feedback*** in the footer on the 
-[Developer Portal](https://developer.1689.cloud).
+[GARDENA Developer Portal](https://developer.husqvarnagroup.cloud).
 
 
 ## Note
-This is a private project. I am not in any association with GARDENA or Husqvarna.
+
+This is a private project. I am not in any association with 
+GARDENA or Husqvarna.
 
   
 ## Changelog
+### 1.0.0
+* (jpgorganizer)
+  - code rework, no functional change expected
+  - support `PAUSE` for SERVICE_VALVE, SERVICE_POWER_SOCKET
+  - internal representation for all timestamps changed from format like 
+    `2020-05-26T05:03:47.613+0000` to `2020-05-26T05:03:47.613Z` to 
+    support Safari browser.
+  - support forecast values for mower id's in format with suffix, 
+    e.g. `d8a1faef-2ee3-421d-a3f8-f8ed577c2ad3:suffix`
+  - making the adapter more fault tolerant at startup, e.g. trimming 
+    whitespaces from username, etc.
+  - README: new chapter *Getting support*, 
+  - README: chapter *Known Errors* deleted, should be resolved by GARDENA 
+  - README: links to GARDENA/Husqvarna developer portal adjusted to the new address
+
 ### 0.6.0
 * (jpgorganizer) 
   - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
-    e.g. [Issue 5](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/5)
+    e.g. 
+	[Issue 5](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/5)
   - rework instance config dialog
   - improvement of documentation
 
@@ -515,20 +572,20 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
   integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
     DEVICE's and all SERVICE's has changed due to support of History adapter. 
-	(History adapter cannot handle id's with `%` (percent) character within id's, 
-	although the `%` is not forbidden in id's in ioBroker), 
-	e.g. [Issue 8](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/8). 
+	(History adapter cannot handle id's with `%` (percent) character 
+	within id's, although the `%` is not forbidden in id's in ioBroker), e.g. 
+	[Issue 8](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/8). 
   
     So you **must delete all states** of the adapter instance to 
     install this release and please check your application carefully for 
     necessary adjustments regarding the change of the id names.
 
   - devices *Water Control* and *Smart Pump* tested (many thanks to user 
-  gammler2003 and xengosam at 
-  [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
+    gammler2003 and xengosam at 
+    [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
   - some code rework and improvement of documentation
-  - dependency corrected, important for js-controller v3, 
-    e.g. [Issue 7](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/7)
+  - dependency corrected, important for js-controller v3, e.g. 
+    [Issue 7](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/7)
   - adapter now available at npm
   
 ### 0.4.2
@@ -546,7 +603,8 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
   - **NOTE:** with this version an additional dependency is necessary at runtime. 
   If it does not get installed together with the installation of this adapter, 
   please install seperately with 
-  `npm install https://github.com/jpgorganizer/ioBroker.utils` or `npm i @jpgorganizer/utils`
+  `npm install https://github.com/jpgorganizer/ioBroker.utils` or 
+  `npm i @jpgorganizer/utils`
   - **NOTE:** you **must delete all states** of the adapter instance to 
   install this release and please check your application carefully for 
   necessary adjustments regarding type/role changes (see below) 
@@ -556,8 +614,8 @@ This is a private project. I am not in any association with GARDENA or Husqvarna
 	`string`/`text` where applicable, e.g. `number`/`value.battery` for 
 	`batteryLevel_value`, see 
 	[Issue 3](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/3)
-  - data point `activity_value_i` replaced by `activity_mowing_i` with type/role 
-  `boolean`/`indicator.working`: `true` means *mowing*, `false` 
+  - data point `activity_value_i` replaced by `activity_mowing_i` with 
+    type/role `boolean`/`indicator.working`: `true` means *mowing*, `false` 
   means *not mowing*
   - possibility to pre-define states integrated, see new switch 
   `PreDefine States` in adapter/instance configuration, see 
@@ -594,12 +652,12 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
 
 ## License
 
- Copyright (c) 2020 jpgorganizer, https://github.com/jpgorganizer 
- 
- smartgarden by jpgorganizer is licensed under a 
- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
- [(CC-BY-NC-SA-4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
- Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden.
+Copyright (c) 2020 jpgorganizer, https://github.com/jpgorganizer 
+
+smartgarden by jpgorganizer is licensed under a 
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
+[(CC-BY-NC-SA-4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/) 
+Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2102 $ $Date: 2020-05-03 11:50:59 +0200 (So, 03 Mai 2020) $ --->
+<!--- SVN: $Rev: 2157 $ $Date: 2020-06-11 19:24:52 +0200 (Do, 11 Jun 2020) $ --->

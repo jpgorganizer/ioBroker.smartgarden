@@ -104,6 +104,7 @@ at least one [GARDENA smart device](#supported-devices).
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [1.0.1](#101)
      * [1.0.0](#100)
      * [0.6.0](#060)
      * [0.5.1](#051)
@@ -674,4 +675,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2220 $ $Date: 2020-08-16 22:17:39 +0200 (So, 16 Aug 2020) $ --->
+<!--- SVN: $Rev: 2222 $ $Date: 2020-08-17 11:20:02 +0200 (Mo, 17 Aug 2020) $ --->

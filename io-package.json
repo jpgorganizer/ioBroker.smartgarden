@@ -1,10 +1,21 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.0",
+    "version": "1.0.1",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.1": {
+		"en": "better reconnection to GARDENA smart system server in case of your internet connection was broken",
+		"de": "verbesserter ReConnect zum GARDENA Smart System Server, falls Ihre Internetverbindung unterbrochen wurde",
+		"ru": "лучшее переподключение к серверу умной системы GARDENA в случае разрыва вашего интернет-соединения",
+		"pt": "melhor reconexão ao servidor de sistema inteligente GARDENA no caso de sua conexão com a internet ser interrompida",
+		"nl": "betere herverbinding met de GARDENA smart system-server voor het geval uw internetverbinding is verbroken",
+		"fr": "meilleure reconnexion au serveur du système intelligent GARDENA en cas de rupture de votre connexion Internet",
+		"it": "migliore riconnessione al server GARDENA smart system in caso di interruzione della connessione Internet",
+		"es": "mejor reconexión al servidor del sistema inteligente GARDENA en caso de que se interrumpa la conexión a Internet",
+		"pl": "lepsze ponowne połączenie z serwerem systemu GARDENA smart w przypadku zerwania połączenia internetowego",
+		"zh-cn": "如果您的互联网连接断开，可以更好地重新连接到GARDENA智能系统服务器"	  },
       "1.0.0": {
 		"en": "no functional change",
 		"de": "keine funktionale Änderung",
@@ -105,8 +116,8 @@
       "zh-cn": "智慧花园"
     },
     "desc": {
-      "en": "an adapter for Gardena smart system",
-      "de": "ein Adapter für das Gardena Smart System",
+      "en": "Gardena smart system adapter",
+      "de": "Gardena Smart System Adapter",
       "ru": "адаптер для умной системы Gardena",
       "pt": "um adaptador para o sistema inteligente Gardena",
       "nl": "een adapter voor Gardena smart system",
@@ -120,9 +131,9 @@
       "jpgorganizer"
     ],
     "keywords": [
-      "template",
       "gardena",
-      "smart"
+      "smart",
+	  "smartgarden"
     ],
     "license": "CC-BY-NC-SA-4.0",
     "platform": "Javascript/Node.js",

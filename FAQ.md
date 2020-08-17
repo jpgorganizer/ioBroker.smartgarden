@@ -14,8 +14,9 @@
 | I would like to have more/other values for my devices | please read chapter *Wishes for data points* in [README](README.md) |
 | I get `invalid date` for each timestamp | this behaviour should be fixed with versions > 0.6.0 |
 | I always get `Error: getlocations: no data` | this error was an error of the Gardena Smart API and is fixed by Gardena |
+| Do I need the Gardena Bridge or is it possible to operate the Gardena smart system without the bridge | You need the bridge. The bridge connects your devices to the Gardena cloud and the smartgarden adapter communicates with the Gardena cloud |
 
  
 
 
-<!--- SVN: $Rev: 2158 $ $Date: 2020-06-11 19:26:13 +0200 (Do, 11 Jun 2020) $ --->
+<!--- SVN: $Rev: 2173 $ $Date: 2020-06-16 20:31:56 +0200 (Di, 16 Jun 2020) $ --->

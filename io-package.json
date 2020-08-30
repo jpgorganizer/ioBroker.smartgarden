@@ -1,10 +1,21 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.1",
+    "version": "1.0.2",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.2": {
+		"en": "monitoring rate limits integrated",
+		"de": "Überwachungsratengrenzen integriert",
+		"ru": "мониторинг пределов скорости интегрирован",
+		"pt": "limites de taxa de monitoramento integrados",
+		"nl": "monitoring frequentie limieten geïntegreerd",
+		"fr": "surveillance des limites de fréquence intégrée",
+		"it": "monitoraggio dei limiti di velocità integrati",
+		"es": "control de límites de frecuencia integrados",
+		"pl": "zintegrowane monitorowanie limitów szybkości",
+		"zh-cn": "集成监控速率限制"  },
       "1.0.1": {
 		"en": "better reconnection to GARDENA smart system server in case of your internet connection was broken",
 		"de": "verbesserter ReConnect zum GARDENA Smart System Server, falls Ihre Internetverbindung unterbrochen wurde",
@@ -162,6 +173,7 @@
 	"useIrrigationAllowedWhileMowing": false,
 	"useMowerHistory": false,
 	"MowerHistoryCycles": "10",
+    "monitoringRateLimits": false,
     "logLevel": "0"
   },
   "objects": [],

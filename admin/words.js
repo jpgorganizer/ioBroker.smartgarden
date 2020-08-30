@@ -156,6 +156,17 @@ systemDictionary = {
     "pl": "Loglevel: 0 = brak dziennika, 1 = niektóre dzienniki, 2 = więcej dzienników, 3 = wszystkie dzienniki",
     "zh-cn": "日志级别：0 =无日志，1 =一些日志，2 =更多日志，3 =所有日志"
   },
+  "monitoringRateLimits": {
+    "en": "monitoring Rate Limits: monitor rate limits of Gardena smart system API",
+    "de": "monitoring Rate Limits: Überwachen Sie die Zugriffsbeschränkungen der Gardena Smart System API",
+    "ru": "monitoring Rate Limits: контролировать лимиты скорости API интеллектуальной системы Gardena",
+    "pt": "monitoring Rate Limits: monitorar limites de taxa de API do sistema inteligente Gardena",
+    "nl": "monitoring Rate Limits: bewaak de snelheidslimieten van de Gardena slimme systeem-API",
+    "fr": "monitoring Rate Limits: surveiller les limites de débit de l'API Gardena Smart System",
+    "it": "monitoring Rate Limits: monitorare i limiti di velocità dell'API del sistema intelligente Gardena",
+    "es": "monitoring Rate Limits: supervisar los límites de velocidad de la API del sistema inteligente de Gardena",
+    "pl": "monitoring Rate Limits: monitorowanie limitów szybkości Gardena smart system API",
+    "zh-cn": "monitoring Rate Limits: 监视Gardena智能系统API的速率限制"  },
   "smart_host": {
     "en": "Base-URL: Webservice Base-URL (https://api.smart.gardena.dev)",
     "de": "Base-URL: Webservice Basis-URL (https://api.smart.gardena.dev)",

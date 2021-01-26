@@ -60,6 +60,18 @@ systemDictionary = {
     "pl": "Auth-URL: Adres URL hosta uwierzytelniania (https://api.authentication.husqvarnagroup.dev)",
     "zh-cn": "Auth-URL: 认证主机URL (https://api.authentication.husqvarnagroup.dev)"
   },
+  "connection_retry_interval": {
+    "en": "connection retry interval: interval for retry to connect to Gardena Webservice in case of an error (in seconds)",
+    "de": "connection retry interval: Intervall für den erneuten Versuch, im Fehlerfall eine Verbindung zum Gardena Webservice herzustellen (in Sekunden)",
+    "ru": "connection retry interval: интервал повторной попытки подключения к Gardena Webservice в случае ошибки (в секундах)",
+    "pt": "connection retry interval: intervalo para tentar novamente se conectar ao Gardena Webservice em caso de erro (em segundos)",
+    "nl": "connection retry interval: interval voor opnieuw proberen verbinding te maken met Gardena Webservice in geval van een fout (in seconden)",
+    "fr": "connection retry interval: intervalle entre les tentatives de connexion à Gardena Webservice en cas d'erreur (en secondes)",
+    "it": "connection retry interval: intervallo per riprovare a connettersi a Gardena Webservice in caso di errore (in secondi)",
+    "es": "connection retry interval: intervalo para volver a intentar conectarse al servicio web de Gardena en caso de error (en segundos)",
+    "pl": "connection retry interval: interwał ponawiania próby połączenia się z usługą Gardena Webservice w przypadku błędu (w sekundach)",
+    "zh-cn": "connection retry interval: 发生错误时重试连接到Gardena Webservice的间隔（以秒为单位）"
+  },
   "gardena_ping_frequence": {
     "en": "ping frequence: Frequence for sending Ping's to Gardena Webservice (in seconds)",
     "de": "ping frequence: Häufigkeit für das Senden von Pings an Gardena Webservice (in Sekunden)",

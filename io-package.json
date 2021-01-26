@@ -1,10 +1,12 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.2",
+    "version": "1.0.3",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.3": {
+		"en": "error handling"},
       "1.0.2": {
 		"en": "monitoring rate limits integrated",
 		"de": "Überwachungsratengrenzen integriert",
@@ -115,16 +117,16 @@
     },
     "title": "smartGarden",
     "titleLang": {
-      "en": "smartGarden",
-      "de": "smartGarden",
-      "ru": "smartGarden",
-      "pt": "smartGarden",
-      "nl": "SmartGarden",
-      "fr": "smartGarden",
-      "it": "smartGarden",
-      "es": "smartGarden",
-      "pl": "smartGarden",
-      "zh-cn": "智慧花园"
+      "en": "smartGarden for Gardena smart system",
+	  "de": "smartGarden für Gardena Smart System",
+	  "ru": "smartGarden для умной системы Gardena",
+	  "pt": "smartGarden para sistema inteligente Gardena",
+	  "nl": "smartGarden voor Gardena smart system",
+	  "fr": "smartGarden pour système intelligent Gardena",
+	  "it": "smartGarden per Gardena smart system",
+	  "es": "smartGarden para el sistema inteligente Gardena",
+	  "pl": "smartGarden dla inteligentnego systemu Gardena",
+	  "zh-cn": "smartGarden 用于Gardena智能系统"
     },
     "desc": {
       "en": "Gardena smart system adapter",
@@ -167,6 +169,7 @@
     "gardena_username": "mail@me.com",
     "gardena_password": "password",
     "gardena_ping_frequence": "150",
+    "connection_retry_interval": "300",
     "gardena_authtoken_factor": "1.001",
     "useTestVariable": false,
     "preDefineStates": false,

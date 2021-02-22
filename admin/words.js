@@ -132,18 +132,6 @@ systemDictionary = {
     "pl": "cycles: liczba cykli historii KOSIARKI",
     "zh-cn": "cycles: MOWER历史周期数"
   },
-  "useTestVariable": {
-    "en": "use test variable for debug",
-    "de": "testVariable für Debug Zwecke",
-    "ru": "используйте тестовую переменную для отладки",
-    "pt": "use variável de teste para depuração",
-    "nl": "gebruik testvariabele voor foutopsporing",
-    "fr": "utiliser la variable de test pour le débogage",
-    "it": "usa la variabile test per il debug",
-    "es": "usar variable de prueba para depurar",
-    "pl": "użyj zmiennej testowej do debugowania",
-    "zh-cn": "使用测试变量进行调试"
-  },
   "preDefineStates": {
     "en": "pre-define states: pre-define all states of Gardena API regardless they are currently transmitted",
     "de": "pre-define states: Definiere alle Zustände der Gardena-API vorab, unabhängig davon, ob sie aktuell übertragen werden",

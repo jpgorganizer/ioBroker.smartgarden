@@ -1,10 +1,12 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.3",
+    "version": "1.0.4",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.4": {
+		"en": "necessary adjustments due to js-controller v3.2"},
       "1.0.3": {
 		"en": "error handling"},
       "1.0.2": {
@@ -171,7 +173,6 @@
     "gardena_ping_frequence": "150",
     "connection_retry_interval": "300",
     "gardena_authtoken_factor": "1.001",
-    "useTestVariable": false,
     "preDefineStates": false,
 	"useIrrigationAllowedWhileMowing": false,
 	"useMowerHistory": false,

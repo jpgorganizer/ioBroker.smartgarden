@@ -3,7 +3,7 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * SVN:                 $Rev: 2285 $ $Date: 2020-11-06 20:54:22 +0100 (Fr, 06 Nov 2020) $
+ * SVN:                 $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -11,7 +11,7 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2285 $';
+const mainrev ='$Rev: 2466 $';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -21,8 +21,22 @@ const ju = require('@jpgorganizer/utils').utils;
 // Load your modules here, e.g.:
 const gardena_api = require(__dirname + '/lib/api');
 
-let configUseTestVariable;
 let configUseMowerHistory;
+
+function updateAdapter(adapter) {
+    // delete smartgarden.0.testVariable, e.g. v1.0.4
+	let id = adapter.name + '.' + adapter.instance + '.testVariable'
+	adapter.getState(id, function(err, state) {
+		if (!err && state) {
+			adapter.delState(id, function (err) {
+				if (!err) {
+					adapter.delObject(id);
+					ju.adapterloginfo(1, 'update with version 1.0.4: ' + id + ' removed');
+				}
+			});
+		}
+	});
+}
 
 function main(adapter) {
     // Initialize your adapter here
@@ -37,10 +51,11 @@ function main(adapter) {
     //ju.adapterloginfo(1, 'config gardena_api_key: ' + adapter.config.gardena_api_key);
     //ju.adapterloginfo(1, 'config gardena_username: ' + adapter.config.gardena_username);
     //ju.adapterloginfo(1, 'config gardena_password: ' + adapter.config.gardena_password);
-	configUseTestVariable = adapter.config.useTestVariable;
 	configUseMowerHistory = adapter.config.useMowerHistory;
 	
 	let that = adapter;
+	
+	updateAdapter(adapter);
 	
 	gardena_api.setAdapter(adapter);
 	gardena_api.setVer(mainrev);
@@ -68,21 +83,6 @@ function main(adapter) {
 		
 	}
 
-	if (configUseTestVariable === true) {
-		adapter.setObjectNotExists('testVariable', {
-			type: 'state',
-			common: {
-				name: 'testVariable',
-				type: 'boolean',
-				role: 'indicator',
-				read: true,
-				write: true,
-			},
-			native: {},
-		});
-		adapter.setState('testVariable', true);
-	}
-	
 	// all states changes inside the adapters namespace are subscribed
 	adapter.subscribeStates('*');
 }

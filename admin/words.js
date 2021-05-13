@@ -156,6 +156,18 @@ systemDictionary = {
     "pl": "Loglevel: 0 = brak dziennika, 1 = niektóre dzienniki, 2 = więcej dzienników, 3 = wszystkie dzienniki",
     "zh-cn": "日志级别：0 =无日志，1 =一些日志，2 =更多日志，3 =所有日志"
   },
+  "beautifyLog": {
+    "en": "beautify log: beautify/abbreviate the spelling of ids",
+    "de": "beautify log: Verschönern / Abkürzen der Schreibweise von IDs",
+    "ru": "beautify log: украсить / сократить написание идентификаторов",
+    "pt": "beautify log: embelezar / abreviar a grafia de ids",
+    "nl": "beautify log: verfraai / verkort de spelling van id's",
+    "fr": "beautify log: embellir / abréger l'orthographe des identifiants",
+    "it": "beautify log: abbellire / abbreviare l'ortografia degli ID",
+    "es": "beautify log: embellecer / abreviar la ortografía de los identificadores",
+    "pl": "beautify log: upiększyć / skrócić pisownię identyfikatorów",
+    "zh-cn": "beautify log: 美化/缩写id的拼写"
+  },
   "monitoringRateLimits": {
     "en": "monitoring Rate Limits: monitor rate limits of Gardena smart system API",
     "de": "monitoring Rate Limits: Überwachen Sie die Zugriffsbeschränkungen der Gardena Smart System API",

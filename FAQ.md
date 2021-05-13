@@ -15,8 +15,9 @@
 | I get `invalid date` for each timestamp | this behaviour should be fixed with versions > 0.6.0 |
 | I always get `Error: getlocations: no data` | this error was an error of the Gardena Smart API and is fixed by Gardena |
 | Do I need the Gardena Bridge or is it possible to operate the Gardena smart system without the bridge | You need the bridge. The bridge connects your devices to the Gardena cloud and the smartgarden adapter communicates with the Gardena cloud |
-
+| My devices, like my mower, are not responding to my commands. | Please check that you have set the value for command with `ack=false`. See [Chapter Commands and Statuses in Guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)|
+| Why does my mower / my valve / my power socket start for one minute, although I set another command, like `PARK_UNTIL_NEXT_TASK` for a mower. | It is very likely that you misspelled the command. If the adapter doesn'r recognize the command the device gets started for 60 seconds. |
  
 
 
-<!--- SVN: $Rev: 2173 $ $Date: 2020-06-16 20:31:56 +0200 (Di, 16 Jun 2020) $ --->
+<!--- SVN: $Rev: 2506 $ $Date: 2021-05-13 17:29:49 +0200 (Do, 13 Mai 2021) $ --->

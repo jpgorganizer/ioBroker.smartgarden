@@ -1,10 +1,12 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.4",
+    "version": "1.0.5",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.5": {
+		"en": "necessary adjustments due to js-controller v3.3"},
       "1.0.4": {
 		"en": "necessary adjustments due to js-controller v3.2"},
       "1.0.3": {
@@ -178,6 +180,7 @@
 	"useMowerHistory": false,
 	"MowerHistoryCycles": "10",
     "monitoringRateLimits": false,
+	"beautifyLog": true,
     "logLevel": "0"
   },
   "objects": [],

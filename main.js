@@ -3,7 +3,7 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * SVN:                 $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $
+ * SVN:                 $Rev: 2495 $ $Date: 2021-05-08 23:12:45 +0200 (Sa, 08 Mai 2021) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -11,7 +11,8 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2466 $';
+const mainrev ='$Rev: 2495 $';
+const adapterversion = '1.0.5';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -23,20 +24,190 @@ const gardena_api = require(__dirname + '/lib/api');
 
 let configUseMowerHistory;
 
-function updateAdapter(adapter) {
-    // delete smartgarden.0.testVariable, e.g. v1.0.4
-	let id = adapter.name + '.' + adapter.instance + '.testVariable'
+function updateAdapter010004(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor) {
+	// delete smartgarden.0.testVariable
+	let updateAdapterVersion = '1.0.4';
+	let arr = updateAdapterVersion.split('.');
+	let relevantAdapterVersion  = arr[0] * dotfactor * dotfactor + arr[1] * dotfactor + arr[2];
+
+	if (previousAdapterVersion < relevantAdapterVersion) {
+		let id = adapter.name + '.' + adapter.instance + '.testVariable'
+		adapter.getState(id, function(err, state) {
+			if (!err && state) {
+				adapter.delState(id, function (err) {
+					if (!err) {
+						adapter.delObject(id);
+						ju.adapterloginfo(1, 'update: ' + id + ' removed');
+						ju.adapterloginfo(1, 'update for version ' + updateAdapterVersion + ' done with ' + adapterversion);
+					}
+				});
+			}
+		});
+	}
+}
+
+function updateAdapter010005(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor, callback) {
+	// change data type for some data points
+	// just delete the data points, they will get recreated in normal process
+	let updateAdapterVersion = '1.0.5';
+	let arr = updateAdapterVersion.split('.');
+	let relevantAdapterVersion  = arr[0] * dotfactor * dotfactor + arr[1] * dotfactor + arr[2];
+	
+	if (previousAdapterVersion < relevantAdapterVersion) {
+	//	- for all devices: `rfLinkLevel_value` 
+	//  - for mower: `batteryLevel_value`, `operatingHours_value` 
+	//  - for sensor: `batteryLevel_value`, `soilHumidity_value`, `soilTemperature_value`, `lightIntensity_value`, `ambientTemperature_value`
+	
+		let arrPattern = [];
+		arrPattern.push('*.name_value');
+		arrPattern.push('*.batteryLevel_value');
+		arrPattern.push('*.batteryLevel_timestamp');
+		arrPattern.push('*.batteryState_value');
+		arrPattern.push('*.batteryState_timestamp');
+		arrPattern.push('*.rfLinkLevel_value');
+		arrPattern.push('*.rfLinkLevel_timestamp');
+		arrPattern.push('*.serial_value');
+		arrPattern.push('*.modelType_value');
+		arrPattern.push('*.rfLinkState_value');
+		arrPattern.push('*.rfLinkState_timestamp');
+		
+		arrPattern.push('*.state_value');
+		arrPattern.push('*.state_timestamp');
+		arrPattern.push('*.activity_value');
+		arrPattern.push('*.activity_timestamp');
+		arrPattern.push('*.lastErrorCode_value');
+		arrPattern.push('*.lastErrorCode_timestamp');
+		arrPattern.push('*.operatingHours_value');
+		
+		arrPattern.push('*.duration_value');
+		arrPattern.push('*.duration_timestamp');
+		
+		arrPattern.push('*.soilHumidity_value');
+		arrPattern.push('*.soilHumidity_timestamp');
+		arrPattern.push('*.soilTemperature_value');
+		arrPattern.push('*.soilTemperature_timestamp');
+		arrPattern.push('*.lightIntensity_value');
+		arrPattern.push('*.lightIntensity_timestamp');
+		arrPattern.push('*.ambientTemperature_value');
+		arrPattern.push('*.ambientTemperature_timestamp');
+		
+		deleteStateWPatternList(adapter, arrPattern, 0, function(err) {
+			ju.adapterloginfo(1, 'update for version ' + updateAdapterVersion + ' done with ' + adapterversion);
+			if (callback) callback(err);
+		});
+	} else {
+		if (callback) callback(0);
+	}
+}
+
+function updateAdapter(adapter, callback) {
+	let dotfactor = 100;
+	let id = adapter.name + '.' + adapter.instance + '.info.adapterversion'
+	
+	let previousAdapterVersion = 0;
+	
+	let arr = adapterversion.split('.');
+	let currentAdapterVersion = arr[0] * dotfactor * dotfactor + arr[1] * dotfactor + arr[2];
+	
 	adapter.getState(id, function(err, state) {
-		if (!err && state) {
-			adapter.delState(id, function (err) {
-				if (!err) {
-					adapter.delObject(id);
-					ju.adapterloginfo(1, 'update with version 1.0.4: ' + id + ' removed');
+		if (!err) {
+			if (state) {
+				let arr = state.val.split('.');
+				previousAdapterVersion = arr[0] * dotfactor * dotfactor + arr[1] * dotfactor + arr[2];
+			} 
+
+			updateAdapter010004(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor);
+			updateAdapter010005(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor, function (err) {
+				if (callback) callback(0);
+			});
+		}
+		
+		adapter.setObjectNotExists(id, {
+			type: 'state',
+			common: {
+				name: 'adapterversion',
+				type: 'string',
+				role: 'text',
+				read: true,
+				write: false,
+			},
+			native: {},
+		}, function (err) {
+			if (err) {
+				ju.adapterloginfo(1, 'ERROR updateAdapter: creating state info.adapterversion failed');
+			} else {
+				adapter.setState('info.adapterversion', adapterversion, true);
+			}
+		});
+	});
+}
+
+function delStatesWList(adapter, arrId, idx, callback) {
+	
+	if (idx < arrId.length) {
+	let id = arrId[idx];
+	adapter.delState(id, function (err) {
+		if (!err) {
+			adapter.delObject(id, function (err) {
+				ju.adapterloginfo(1, 'delStatesWList: ' + gardena_api.beautifyStateIdName(id) + ' removed');
+				if (idx + 1 < arrId.length) {
+					delStatesWList(adapter, arrId, idx + 1, function(err) {
+						if (callback) callback(0);
+					});
+				} else {
+					if (callback) callback(0);
 				}
 			});
+		} else {
+			if (callback) callback(0);
+		}
+	});
+	} else {
+		if (callback) callback(0);
+	}
+}
+
+function deleteStateWPattern(adapter, namepattern, callback) {
+	let pattern = adapter.name + '.' + adapter.instance + '.' + namepattern;
+	let arrId = [];
+	let arrIdBeautified = [];
+	
+	adapter.getStates(pattern, function(err, states) {
+		if (!err && states) {
+			for (let id in states) {
+				arrId.push(id);
+				arrIdBeautified.push(gardena_api.beautifyStateIdName(id));
+			}
+			ju.adapterloginfo(1, 'deleteStateWPattern: ' + namepattern + ' > found states=' + JSON.stringify(arrIdBeautified));
+			
+			if (arrId.length > 0) {
+				delStatesWList(adapter, arrId, 0, function(err) {
+					if (callback) callback(0);
+				});
+			} else {
+				if (callback) callback(0);
+			}
+		} else {
+			ju.adapterloginfo(1, 'deleteStateWPattern: ' + namepattern + ' > no states found');
+			if (callback) callback(0);
 		}
 	});
 }
+
+function deleteStateWPatternList(adapter, patternlist, idx, callback) {
+	let pattern = patternlist[idx];
+	
+	deleteStateWPattern(adapter, pattern, function(err) {
+		if (idx + 1 < patternlist.length) {
+			deleteStateWPatternList(adapter, patternlist, idx + 1, function(err) {
+				if (callback) callback(0);
+			});
+		} else {
+			if (callback) callback(0);
+		}
+	});
+}
+
 
 function main(adapter) {
     // Initialize your adapter here
@@ -52,39 +223,38 @@ function main(adapter) {
     //ju.adapterloginfo(1, 'config gardena_username: ' + adapter.config.gardena_username);
     //ju.adapterloginfo(1, 'config gardena_password: ' + adapter.config.gardena_password);
 	configUseMowerHistory = adapter.config.useMowerHistory;
-	
-	let that = adapter;
-	
-	updateAdapter(adapter);
-	
-	gardena_api.setAdapter(adapter);
-	gardena_api.setVer(mainrev);
-	gardena_api.getConnection();
-	
-	if (configUseMowerHistory === true) {
-		
-		adapter.getState('info.saveMowingHistory', function (err, state) {
-			if (!err && state) {
-				if (state.val.length > 0) {
-					let mowHistory = JSON.parse(state.val);
-					gardena_api.setMowingHistory(mowHistory);
-				}
-			}
-		});
-		
-		adapter.getState('info.saveChargingHistory', function (err, state) {
-			if (!err && state) {
-				if (state.val.length > 0) {
-					let chargeHistory = JSON.parse(state.val);
-					gardena_api.setChargingHistory(chargeHistory);
-				}
-			}
-		});
-		
-	}
 
-	// all states changes inside the adapters namespace are subscribed
-	adapter.subscribeStates('*');
+	gardena_api.setAdapter(adapter);
+		
+	updateAdapter(adapter, function(err) {
+		gardena_api.setVer(mainrev);
+		gardena_api.getConnection();
+		
+		if (configUseMowerHistory === true) {
+			
+			adapter.getState('info.saveMowingHistory', function (err, state) {
+				if (!err && state) {
+					if (state.val.length > 0) {
+						let mowHistory = JSON.parse(state.val);
+						gardena_api.setMowingHistory(mowHistory);
+					}
+				}
+			});
+			
+			adapter.getState('info.saveChargingHistory', function (err, state) {
+				if (!err && state) {
+					if (state.val.length > 0) {
+						let chargeHistory = JSON.parse(state.val);
+						gardena_api.setChargingHistory(chargeHistory);
+					}
+				}
+			});
+
+		}
+		
+		// all states changes inside the adapters namespace are subscribed
+		adapter.subscribeStates('*');
+	});
 }
 
 
@@ -153,7 +323,7 @@ class Smartgarden extends utils.Adapter {
 		if (state !== null && state !== undefined) {
 			if (state.ack === false) {
 				// The state was changed by user
-				ju.adapterloginfo(3, `---> Command should be sent to device: state ${id} changed: ${state.val} (ack = ${state.ack})`);
+				ju.adapterloginfo(3, '---> Command should be sent to device: state '+ gardena_api.beautifyStateIdName(id) + ' changed, ' + state.val + ' (ack = ' + state.ack + ')');
 				gardena_api.sendCommand(id, state);
 			} else {
 				// The state was changed by system
@@ -164,10 +334,10 @@ class Smartgarden extends utils.Adapter {
 					case 'RateLimitCounter':
 					case 'saveChargingHistory':
 					case 'saveMowingHistory':
-						ju.adapterloginfo(3, `---> State change by device: state ${id} changed, (ack = ${state.ack})`);
+						ju.adapterloginfo(3, '---> State change by device: state ' + gardena_api.beautifyStateIdName(id) + ' changed, ' + state.val + ' (ack = ' + state.ack + ')');
 						break;
 					default:
-						ju.adapterloginfo(3, `---> State change by device: state ${id} changed: ${state.val} (ack = ${state.ack})`);
+						ju.adapterloginfo(3, '---> State change by device: state ' + gardena_api.beautifyStateIdName(id) + ' changed: ' + state.val + ' (ack = ' + state.ack + ')');   
 						break;
 				}
 			}

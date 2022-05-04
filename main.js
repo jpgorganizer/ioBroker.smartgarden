@@ -3,7 +3,7 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * SVN:                 $Rev: 2495 $ $Date: 2021-05-08 23:12:45 +0200 (Sa, 08 Mai 2021) $
+ * SVN:                 $Rev: 2755 $ $Date: 2022-05-02 13:18:33 +0200 (Mo, 02 Mai 2022) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -11,8 +11,8 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2495 $';
-const adapterversion = '1.0.5';
+const mainrev ='$Rev: 2755 $';
+const adapterversion = '1.0.6';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -334,7 +334,7 @@ class Smartgarden extends utils.Adapter {
 					case 'RateLimitCounter':
 					case 'saveChargingHistory':
 					case 'saveMowingHistory':
-						ju.adapterloginfo(3, '---> State change by device: state ' + gardena_api.beautifyStateIdName(id) + ' changed, ' + state.val + ' (ack = ' + state.ack + ')');
+						ju.adapterloginfo(3, '---> State change by device: state ' + gardena_api.beautifyStateIdName(id) + ' changed, ' +  ' (ack = ' + state.ack + ')');
 						break;
 					default:
 						ju.adapterloginfo(3, '---> State change by device: state ' + gardena_api.beautifyStateIdName(id) + ' changed: ' + state.val + ' (ack = ' + state.ack + ')');   

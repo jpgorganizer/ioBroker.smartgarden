@@ -1,10 +1,21 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.5",
+    "version": "1.0.6",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+      "1.0.6": {
+		"en": "bug fix error handling, changes due to changed behavior Gardena Service, some minor changes in documentation",
+		"de": "Fehlerbehebung Fehlerbehandlung, Änderungen aufgrund geänderten Verhaltens Gardena Service, einige kleinere Änderungen in der Dokumentation",
+		"ru": "исправление ошибок, обработка ошибок, изменения, связанные с изменением поведения службы Gardena, небольшие изменения в документации",
+		"pt": "tratamento de erros de correção de bugs, alterações devido ao comportamento alterado Serviço Gardena, algumas pequenas alterações na documentação",
+		"nl": "bug fix foutafhandeling, wijzigingen als gevolg van gewijzigd gedrag Gardena Service, enkele kleine wijzigingen in de documentatie",
+		"fr": "correction de bogues gestion des erreurs, modifications dues à un changement de comportement Gardena Service, quelques modifications mineures dans la documentation",
+		"it": "bug fix gestione errori, modifiche dovute al comportamento modificato Gardena Service, alcune modifiche minori nella documentazione",
+		"es": "corrección de errores manejo de errores, cambios debido al cambio de comportamiento Servicio de Gardena, algunos cambios menores en la documentación",
+		"pl": "naprawa błędów obsługa błędów, zmiany spowodowane zmianą zachowania Gardena Service, drobne zmiany w dokumentacji",
+		"zh-cn": "错误修复错误处理，由于行为改变引起的更改 Gardena 服务，文档中的一些小改动"},
       "1.0.5": {
 		"en": "necessary adjustments due to js-controller v3.3"},
       "1.0.4": {

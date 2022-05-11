@@ -11,11 +11,6 @@
 [![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)](https://nodei.co/npm/iobroker.smartgarden/)
 
 
-**If you like it, please consider a donation:**
-
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url) 
-  
-
 ## ioBroker smartgarden adapter for GARDENA smart system
 
 An adapter for GARDENA smart system using official 
@@ -793,4 +788,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2759 $ $Date: 2022-05-02 21:32:46 +0200 (Mo, 02 Mai 2022) $ --->
+<!--- SVN: $Rev: 2764 $ $Date: 2022-05-11 21:07:17 +0200 (Mi, 11 Mai 2022) $ --->

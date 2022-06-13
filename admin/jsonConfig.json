@@ -1,0 +1,598 @@
+{
+	"i18n": {
+		"label_main_settings": {
+			"en": "Main settings",
+			"de": "Haupteinstellungen",
+			"ru": "Основные настройки",
+			"pt": "Configurações principais",
+			"nl": "Hoofdinstellingen",
+			"fr": "Paramètres principaux",
+			"it": "Impostazioni principali",
+			"es": "Ajustes principales",
+			"pl": "Główne ustawienie",
+			"zh-cn": "主要环境"
+		},
+		"label_Miscellaneous": {
+			"en": "Miscellaneous",
+			"de": "Verschiedenes",
+			"ru": "Разное",
+			"pt": "Diversos",
+			"nl": "Miscellane",
+			"fr": "Divers",
+			"it": "Varie",
+			"es": "Varios",
+			"pl": "Miscellaneous",
+			"zh-cn": "杂项"
+		},
+		"label_system": {
+			"en": "System",
+			"de": "System",
+			"ru": "Система",
+			"pt": "Sistema",
+			"nl": "Systeem",
+			"fr": "Système",
+			"it": "Sistema",
+			"es": "Sistema",
+			"pl": "System",
+			"zh-cn": "系统"
+		},
+		"label_gardena_api_key": {
+			"en": "application key",
+			"de": "application key",
+			"ru": "application key",
+			"pt": "application key",
+			"nl": "application key",
+			"fr": "application key",
+			"it": "application key",
+			"es": "application key",
+			"pl": "application key",
+			"zh-cn": "application key"
+		},
+		"help_gardena_api_key": {
+			"en": "Gardena application key",
+			"de": "Gardena application key",
+			"ru": "Gardena application key",
+			"pt": "Gardena application key",
+			"nl": "Gardena application key",
+			"fr": "Gardena application key",
+			"it": "Gardena application key",
+			"es": "Gardena application key",
+			"pl": "Gardena application key",
+			"zh-cn": "Gardena application key"
+		},
+		"label_gardena_application_secret": {
+			"en": "application secret",
+			"de": "application secret",
+			"ru": "application secret",
+			"pt": "application secret",
+			"nl": "application secret",
+			"fr": "application secret",
+			"it": "application secret",
+			"es": "application secret",
+			"pl": "application secret",
+			"zh-cn": "application secret"
+		},
+		"help_gardena_application_secret": {
+			"en": "Gardena application secret",
+			"de": "Gardena application secret",
+			"ru": "Gardena application secret",
+			"pt": "Gardena application secret",
+			"nl": "Gardena application secret",
+			"fr": "Gardena application secret",
+			"it": "Gardena application secret",
+			"es": "Gardena application secret",
+			"pl": "Gardena application secret",
+			"zh-cn": "Gardena application secret"
+		},
+		"label_gardena_username": {
+			"en": "Username",
+			"de": "Benutzername",
+			"ru": "Имя пользователя",
+			"pt": "Nome de utilizador",
+			"nl": "Noem",
+			"fr": "Nom",
+			"it": "Nome utente",
+			"es": "Nombre de usuario",
+			"pl": "Username",
+			"zh-cn": "用户名称"
+		},
+		"help_gardena_username": {
+			"en": "Username for Gardena web service",
+			"de": "Benutzername für Gardena Webservice",
+			"ru": "Имя пользователя для сайта Gardena",
+			"pt": "Nome de usuário para Gardena web service",
+			"nl": "Noemnaam van Gardena Web",
+			"fr": "Username for Gardena web service",
+			"it": "Username per il servizio web Gardena",
+			"es": "Nombre de usuario para servicio web Gardena",
+			"pl": "Oficjalna strona internetowa Gardena",
+			"zh-cn": "加登亚网站服务用户"
+		},
+		"label_gardena_password": {
+			"en": "Password",
+			"de": "Passwort",
+			"ru": "Пароль",
+			"pt": "Senha",
+			"nl": "Wachtwoord",
+			"fr": "Mot de passe",
+			"it": "Password",
+			"es": "Contraseña",
+			"pl": "Password",
+			"zh-cn": "护照"
+		},
+		"help_gardena_password": {
+			"en": "Password for Gardena web service",
+			"de": "Passwort für Gardena Webservice",
+			"ru": "Пароль для сайта Gardena",
+			"pt": "Senha para Gardena web service",
+			"nl": "Wachtwoord voor Gardena Web",
+			"fr": "Mot de passe pour le service web Gardena",
+			"it": "Password per il servizio web Gardena",
+			"es": "Contraseña para servicio web Gardena",
+			"pl": "Oficjalna strona internetowa Garden Service",
+			"zh-cn": "加登亚网站服务客页"
+		},
+		"label_useMowerHistory": {
+			"en": "Use forecast",
+			"de": "Nutzungsprognose",
+			"ru": "Использовать прогноз",
+			"pt": "Previsão do uso",
+			"nl": "Gebruik voorspel",
+			"fr": "Prévisions de dépenses",
+			"it": "Utilizzare le previsioni",
+			"es": "Previsión de uso",
+			"pl": "Zapewniać",
+			"zh-cn": "使用预测"
+		},
+		"help_useMowerHistory": {
+			"en": "use forecast for charging time and mower remaining time",
+			"de": "Verwenden Sie die Prognose für die Ladezeit und die verbleibende Zeit des Mähers",
+			"ru": "использовать прогноз для времени зарядки и оставшегося времени косилки",
+			"pt": "use a previsão para o tempo de carregamento e segure o tempo restante",
+			"nl": "gebruik voorspelling voor laadtijd en resterende tijd van maaier",
+			"fr": "utiliser les prévisions pour le temps de charge et le temps restant de la tondeuse",
+			"it": "utilizzare le previsioni per il tempo di ricarica e il tempo rimanente del tagliaerba",
+			"es": "use el pronóstico para el tiempo de carga y el tiempo restante de la segadora",
+			"pl": "użyj prognozy czasu ładowania i pozostałego czasu pracy kosiarki",
+			"zh-cn": "将预测用于充电时间和割草机剩余时间"
+		},
+		"label_MowerHistoryCycles": {
+			"en": "Number of history cycles",
+			"de": "Anzahl der Grundzyklen",
+			"ru": "Количество циклов истории",
+			"pt": "Número de ciclos de história",
+			"nl": "Nummer van geschiedeniscyclus",
+			"fr": "Nombre de cycles d ' histoire",
+			"it": "Numero di cicli di storia",
+			"es": "Número de ciclos de historia",
+			"pl": "Liczba cyklów historycznych",
+			"zh-cn": "历史周期的数目"
+		},
+		"help_MowerHistoryCycles": {
+			"en": "Number of basic cycles for forecast",
+			"de": "Anzahl der Grundzyklen für Prognosen",
+			"ru": "Количество основных циклов для прогноза",
+			"pt": "Número de ciclos básicos para previsão",
+			"nl": "Nummer van basiscyclussen voor voorspellingen",
+			"fr": "Nombre de cycles de base pour les prévisions",
+			"it": "Numero di cicli di base per previsioni",
+			"es": "Número de ciclos básicos para las previsiones",
+			"pl": "Przestrzeń podstawowa dla prognozy",
+			"zh-cn": "预测的基本周期数"
+		},
+		"label_useIrrigationAllowedWhileMowing": {
+			"en": "Irrigation check",
+			"de": "Bewässerungsprüfung",
+			"ru": "Ирригационная проверка",
+			"pt": "Verificação de irrigação",
+			"nl": "Irrigatie controle",
+			"fr": "Irrigation check",
+			"it": "Controllo irrigazione",
+			"es": "Verificación de riego",
+			"pl": "Irrigacja",
+			"zh-cn": "灌溉检查"
+		},
+		"help_useIrrigationAllowedWhileMowing": {
+			"en": "Use the check whether irrigation is allowed while mowing",
+			"de": "Verwenden Sie die Überprüfung, ob Bewässerung während des Mähens erlaubt ist",
+			"ru": "Используйте чек, разрешен ли орошение во время шитья",
+			"pt": "Use a verificação se a irrigação é permitida durante o corte",
+			"nl": "Gebruik de cheque of irrigatie toegestaan is tijdens het maaien",
+			"fr": "Utilisez le contrôle si l'irrigation est permise pendant la mâche",
+			"it": "Utilizzare il controllo se l'irrigazione è consentita durante il cucito",
+			"es": "Use el cheque si se permite el riego mientras se mueve",
+			"pl": "Użycie kontroli, czy nawadnianie jest dozwolone podczas skosowania",
+			"zh-cn": "利用检查灌溉是否允许,而暴动"
+		},
+		"label_logLevel": {
+			"en": "loglevel",
+			"de": "Loglevel",
+			"ru": "loglevel",
+			"pt": "loglevel",
+			"nl": "loglevel",
+			"fr": "loglevel",
+			"it": "loglevel",
+			"es": "loglevel",
+			"pl": "loglevel",
+			"zh-cn": "loglevel"
+		},
+		"help_logLevel": {
+			"en": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"de": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"ru": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"pt": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"nl": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"fr": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"it": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"es": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"pl": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries",
+			"zh-cn": "Loglevel: 0 = no log entries, 1 = some log entries, 2 = more log entries, 3 = all log entries"
+		},
+		"label_beautifyLog": {
+			"en": "beautify Log",
+			"de": "Log verschönern",
+			"ru": "beautify Вход",
+			"pt": "faça login",
+			"nl": "vertaling:",
+			"fr": "beautify Log",
+			"it": "beautify",
+			"es": "beautify Log",
+			"pl": "logika",
+			"zh-cn": "核证"
+		},
+		"help_beautifyLog": {
+			"en": "beautify/abbreviate the spelling of ids",
+			"de": "Verschönern / Abkürzen der Schreibweise von IDs",
+			"ru": "украсить / сократить написание идентификаторов",
+			"pt": "embelezar / abreviar a grafia de ids",
+			"nl": "verfraai / verkort de spelling van id's",
+			"fr": "embellir / abréger l'orthographe des identifiants",
+			"it": "abbellire / abbreviare l'ortografia degli ID",
+			"es": "embellecer / abreviar la ortografía de los identificadores",
+			"pl": "upiększyć / skrócić pisownię identyfikatorów",
+			"zh-cn": "美化/缩写id的拼写"
+		},
+		"label_monitoringRateLimits": {
+			"en": "Monitor limit",
+			"de": "Monitorlimit",
+			"ru": "Лимит монитора",
+			"pt": "Limite de monitorização",
+			"nl": "Monitor limiet",
+			"fr": "Limite de contrôle",
+			"it": "Limite di monitoraggio",
+			"es": "Límite de monitor",
+			"pl": "Limit Monitora",
+			"zh-cn": "监测限制"
+		},
+		"help_monitoringRateLimits": {
+			"en": "monitor rate limits of Gardena smart system API",
+			"de": "Überwachen Sie die Zugriffsbeschränkungen der Gardena Smart System API",
+			"ru": "контролировать лимиты скорости API интеллектуальной системы Gardena",
+			"pt": "monitorar limites de taxa de API do sistema inteligente Gardena",
+			"nl": "bewaak de snelheidslimieten van de Gardena slimme systeem-API",
+			"fr": "surveiller les limites de débit de l'API Gardena Smart System",
+			"it": "monitorare i limiti di velocità dell'API del sistema intelligente Gardena",
+			"es": "supervisar los límites de velocidad de la API del sistema inteligente de Gardena",
+			"pl": "monitorowanie limitów szybkości Gardena smart system API",
+			"zh-cn": "监视Gardena智能系统API的速率限制"
+		},
+		"label_connection_retry_interval": {
+			"en": "Connection retry interval",
+			"de": "Verbindungswiederholungsintervall",
+			"ru": "Интерфейс связи",
+			"pt": "Intervalo de retração de conexão",
+			"nl": "Verbindingsmiddelen",
+			"fr": "Intervalle de rentrée de connexion",
+			"it": "Intervallo di connessione",
+			"es": "Intervalo de retry de conexión",
+			"pl": "Interwał",
+			"zh-cn": "退税"
+		},
+		"help_connection_retry_interval": {
+			"en": "interval for retry to connect to Gardena Webservice in case of an error (in seconds)",
+			"de": "Intervall für den erneuten Versuch, im Fehlerfall eine Verbindung zum Gardena Webservice herzustellen (in Sekunden)",
+			"ru": "интервал повторной попытки подключения к Gardena Webservice в случае ошибки (в секундах)",
+			"pt": "intervalo para tentar novamente se conectar ao Gardena Webservice em caso de erro (em segundos)",
+			"nl": "interval voor opnieuw proberen verbinding te maken met Gardena Webservice in geval van een fout (in seconden)",
+			"fr": "intervalle entre les tentatives de connexion à Gardena Webservice en cas d'erreur (en secondes)",
+			"it": "intervallo per riprovare a connettersi a Gardena Webservice in caso di errore (in secondi)",
+			"es": "intervalo para volver a intentar conectarse al servicio web de Gardena en caso de error (en segundos)",
+			"pl": "interwał ponawiania próby połączenia się z usługą Gardena Webservice w przypadku błędu (w sekundach)",
+			"zh-cn": "发生错误时重试连接到Gardena Webservice的间隔（以秒为单位）"
+		},
+		"label_gardena_ping_frequence": {
+			"en": "Ping interval",
+			"de": "Ping Intervall",
+			"ru": "Ping интервал",
+			"pt": "Intervalo de Ping",
+			"nl": "Ping interval",
+			"fr": "Intervalle d ' essai",
+			"it": "Intervallo Ping",
+			"es": "Intervalo de Ping",
+			"pl": "Przedział P",
+			"zh-cn": "间隔"
+		},
+		"help_gardena_ping_frequence": {
+			"en": "Interval for sending Ping's to Gardena web service (in seconds)",
+			"de": "Intervall für den Versand von Ping's an den Gardena Webservice (in Sekunden)",
+			"ru": "Интервал для отправки Ping's в веб-сервис Gardena (в секундах)",
+			"pt": "Intervalo para enviar Ping's para Gardena web service (em segundos)",
+			"nl": "Interval voor het sturen van Ping's naar Gardena web service (in seconden)",
+			"fr": "Intervalle pour l'envoi de Ping's au service Web Gardena (en secondes)",
+			"it": "Intervallo per l'invio di Ping al servizio web Gardena (in secondi)",
+			"es": "Intervalo para enviar Ping's a Gardena servicio web (en segundos)",
+			"pl": "Interval za wysłanie Pinga do serwisu internetowego Gardena (w sekundzie)",
+			"zh-cn": "将Ping'发送给Gordena网站服务(借调)的间隔"
+		},
+		"label_gardena_authtoken_factor": {
+			"en": "Validity factor",
+			"de": "Gültigkeitsfaktor",
+			"ru": "Фактор ценности",
+			"pt": "Fator de validade",
+			"nl": "Validity factor",
+			"fr": "Facteur de validité",
+			"it": "Fattore di validità",
+			"es": "Factor de validez",
+			"pl": "Współczynnik wartości",
+			"zh-cn": "缺系数"
+		},
+		"help_gardena_authtoken_factor": {
+			"en": "Factor for validity of authentication token",
+			"de": "Faktor für die Gültigkeit des Authentifizierungstokens",
+			"ru": "Коэффициент достоверности токена аутентификации",
+			"pt": "Fator de validade do token de autenticação",
+			"nl": "Factor voor geldigheid van authenticatietoken",
+			"fr": "Facteur de validité du jeton d'authentification",
+			"it": "Fattore di validità del token di autenticazione",
+			"es": "Factor para la validez del token de autenticación",
+			"pl": "Czynnik ważności tokena uwierzytelniającego",
+			"zh-cn": "认证令牌有效性的因素"
+		},
+		"label_gardena_authentication_host": {
+			"en": "authentication host url",
+			"de": "Authentisierung Host Url",
+			"ru": "аутентификация host url",
+			"pt": "url host de autenticação",
+			"nl": "authenticatie gastheer",
+			"fr": "authentification hôte url",
+			"it": "autenticazione host url",
+			"es": "autenticación host url",
+			"pl": "administracja gospodarza url",
+			"zh-cn": "东道国的核证"
+		},
+		"help_gardena_authentication_host": {
+			"en": "Authentication host URL (https://api.authentication.husqvarnagroup.dev)",
+			"de": "Authentifizierungshost-URL (https://api.authentication.husqvarnagroup.dev)",
+			"ru": "URL хоста аутентификации (https://api.authentication.husqvarnagroup.dev)",
+			"pt": "URL do host de autenticação (https://api.authentication.husqvarnagroup.dev)",
+			"nl": "URL van authenticatiehost (https://api.authentication.husqvarnagroup.dev)",
+			"fr": "URL de l'hôte d'authentification (https://api.authentication.husqvarnagroup.dev)",
+			"it": "URL host di autenticazione (https://api.authentication.husqvarnagroup.dev)",
+			"es": "URL de host de autenticación (https://api.authentication.husqvarnagroup.dev)",
+			"pl": "Adres URL hosta uwierzytelniania (https://api.authentication.husqvarnagroup.dev)",
+			"zh-cn": "认证主机URL (https://api.authentication.husqvarnagroup.dev)"
+		},
+		"label_smart_host": {
+			"en": "Gardena base url",
+			"de": "Gardena Basis Url",
+			"ru": "Gardena база URL",
+			"pt": "Jardim base url",
+			"nl": "Gardena basis",
+			"fr": "Jardina base url",
+			"it": "Rilievo di base Gardena",
+			"es": "Gardena base url",
+			"pl": "Podstawa ogrodu",
+			"zh-cn": "Gardena基地url"
+		},
+		"help_smart_host": {
+			"en": "Webservice Base-URL (https://api.smart.gardena.dev)",
+			"de": "Webservice Basis-URL (https://api.smart.gardena.dev)",
+			"ru": "URL-адрес веб-сервиса (https://api.smart.gardena.dev)",
+			"pt": "Base de Webservice URL (https://api.smart.gardena.dev)",
+			"nl": "Webservice Basis-URL (https://api.smart.gardena.dev)",
+			"fr": "URL de base du service Web (https://api.smart.gardena.dev)",
+			"it": "URL di base del servizio Web (https://api.smart.gardena.dev)",
+			"es": "URL de base de servicio web (https://api.smart.gardena.dev)",
+			"pl": "Webservice Basis-URL (https://api.smart.gardena.dev)",
+			"zh-cn": "Webservice Basis-URL (https://api.smart.gardena.dev)"
+		},
+		"label_": {
+			"en": "xxxxxx"
+		}
+	},
+	"type": "tabs",
+	"items": {
+		"tab-main": {
+			"type": "panel",
+			"label": "label_main_settings",
+			"items": {
+				"gardena_api_key": {
+					"newLine": true,
+					"type": "password",
+					"label": "label_gardena_api_key",
+					"help": "help_gardena_api_key",
+					"visible": true,
+					"repeat": false,
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"gardena_application_secret": {
+					"newLine": true,
+					"type": "password",
+					"label": "label_gardena_application_secret",
+					"help": "help_gardena_application_secret",
+					"visible": true,
+					"repeat": false,
+					"disabled": "(data.gardena_username != '' || data.gardena_password != '') && data.gardena_application_secret == '' ",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"gardena_username": {
+					"newLine": true,
+					"type": "text",
+					"label": "label_gardena_username",
+					"help": "help_gardena_username",
+					"visible": true,
+					"disabled": "data.gardena_application_secret != '' && data.gardena_username == '' ",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"gardena_password": {
+					"newLine": true,
+					"type": "password",
+					"label": "label_gardena_password",
+					"help": "help_gardena_password",
+					"visible": true,
+					"repeat": false,
+					"disabled": "data.gardena_username == '' && data.gardena_password == '' ",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				}
+			}
+		},
+		"tab-miscellaneous": {
+			"type": "panel",
+			"label": "label_Miscellaneous",
+			"items": {
+				"useMowerHistory": {
+					"newLine": true,
+					"type": "checkbox",
+					"label": "label_useMowerHistory",
+					"help": "help_useMowerHistory",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"MowerHistoryCycles": {
+					"type": "number",
+					"disabled": "!data.useMowerHistory",
+					"label": "label_MowerHistoryCycles",
+					"help": "help_MowerHistoryCycles",
+					"min": 3,
+					"step": 1,
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"useIrrigationAllowedWhileMowing": {
+					"newLine": true,
+					"type": "checkbox",
+					"label": "label_useIrrigationAllowedWhileMowing",
+					"help": "help_useIrrigationAllowedWhileMowing",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"monitoringRateLimits": {
+					"newLine": true,
+					"type": "checkbox",
+					"label": "label_monitoringRateLimits",
+					"help": "help_monitoringRateLimits",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				}
+			}
+		},
+		"tab-system": {
+			"type": "panel",
+			"label": "label_system",
+			"items": {
+				"logLevel": {
+					"newLine": true,
+					"type": "select",
+					"label": "label_logLevel",
+					"help": "help_logLevel",
+					"options": [{
+							"label": "0 - no log entries",
+							"value": 0
+						},
+						{
+							"label": "1 - minimal log entries",
+							"value": 1
+						},
+						{
+							"label": "2 - more log entries",
+							"value": 2
+						},
+						{
+							"label": "3 - all log entries",
+							"value": 3
+						}
+					],
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"beautifyLog": {
+					"newLine": false,
+					"type": "checkbox",
+					"label": "label_beautifyLog",
+					"help": "help_beautifyLog",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"connection_retry_interval": {
+					"newLine": true,
+					"type": "number",
+					"label": "label_connection_retry_interval",
+					"help": "help_connection_retry_interval",
+					"min": 60,
+					"step": 1,
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"gardena_ping_frequence": {
+					"newLine": false,
+					"type": "number",
+					"label": "label_gardena_ping_frequence",
+					"help": "help_gardena_ping_frequence",
+					"min": 1,
+					"max": 300,
+					"step": 1,
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+				"gardena_authtoken_factor": {
+					"newLine": true,
+					"type": "number",
+					"label": "label_gardena_authtoken_factor",
+					"help": "help_gardena_authtoken_factor",
+					"min": 0.001,
+					"step": 0.001,
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+
+				"gardena_authentication_host": {
+					"newLine": true,
+					"type": "text",
+					"label": "label_gardena_authentication_host",
+					"help": "help_gardena_authentication_host",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				},
+
+				"smart_host": {
+					"newLine": false,
+					"type": "text",
+					"label": "label_smart_host",
+					"help": "help_smart_host",
+					"sm": 12,
+					"md": 8,
+					"lg": 4
+				}
+
+			}
+		}
+	}
+}

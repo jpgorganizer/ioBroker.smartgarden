@@ -170,4 +170,4 @@ history is deleted.
  Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden.
  
 
-<!--- SVN: $Rev: 2054 $ $Date: 2020-04-20 21:41:36 +0200 (Mo, 20 Apr 2020) $ --->
+<!--- SVN: $Rev: 2831 $ $Date: 2022-06-13 13:00:32 +0200 (Mo, 13 Jun 2022) $ --->

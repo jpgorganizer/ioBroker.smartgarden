@@ -2,8 +2,8 @@
  * Adapter for integration of Gardena Smart System to ioBroker
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
- * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github)
- * SVN:                 $Rev: 2755 $ $Date: 2022-05-02 13:18:33 +0200 (Mo, 02 Mai 2022) $
+ * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github) 
+ * SVN:                 $Rev: 2831 $ $Date: 2022-06-13 13:00:32 +0200 (Mo, 13 Jun 2022) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -11,8 +11,8 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2755 $';
-const adapterversion = '1.0.6';
+const mainrev ='$Rev: 2831 $';
+const adapterversion = '2.0.0';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -46,10 +46,10 @@ function updateAdapter010004(adapter, previousAdapterVersion, currentAdapterVers
 	}
 }
 
-function updateAdapter010005(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor, callback) {
+function updateAdapter020000(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor, callback) {
 	// change data type for some data points
 	// just delete the data points, they will get recreated in normal process
-	let updateAdapterVersion = '1.0.5';
+	let updateAdapterVersion = '2.0.0';
 	let arr = updateAdapterVersion.split('.');
 	let relevantAdapterVersion  = arr[0] * dotfactor * dotfactor + arr[1] * dotfactor + arr[2];
 	
@@ -91,6 +91,8 @@ function updateAdapter010005(adapter, previousAdapterVersion, currentAdapterVers
 		arrPattern.push('*.ambientTemperature_value');
 		arrPattern.push('*.ambientTemperature_timestamp');
 		
+		arrPattern.push('*.name');
+		
 		deleteStateWPatternList(adapter, arrPattern, 0, function(err) {
 			ju.adapterloginfo(1, 'update for version ' + updateAdapterVersion + ' done with ' + adapterversion);
 			if (callback) callback(err);
@@ -117,7 +119,7 @@ function updateAdapter(adapter, callback) {
 			} 
 
 			updateAdapter010004(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor);
-			updateAdapter010005(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor, function (err) {
+			updateAdapter020000(adapter, previousAdapterVersion, currentAdapterVersion, dotfactor, function (err) {
 				if (callback) callback(0);
 			});
 		}
@@ -219,9 +221,6 @@ function main(adapter) {
     // this.config:
     ju.adapterloginfo(1, 'config authenticaton_host: ' + adapter.config.gardena_authentication_host);
     ju.adapterloginfo(1, 'config smart_host: ' + adapter.config.smart_host);
-    //ju.adapterloginfo(1, 'config gardena_api_key: ' + adapter.config.gardena_api_key);
-    //ju.adapterloginfo(1, 'config gardena_username: ' + adapter.config.gardena_username);
-    //ju.adapterloginfo(1, 'config gardena_password: ' + adapter.config.gardena_password);
 	configUseMowerHistory = adapter.config.useMowerHistory;
 
 	gardena_api.setAdapter(adapter);
@@ -277,23 +276,9 @@ class Smartgarden extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
 	async onReady() {	 
-		ju.adapterloginfo(1, "ready - Adapter: databases are connected and adapter received configuration");
-		//ju.adapterloginfo(2, "config.gardena_password verschlüsselt: " + this.config.gardena_password);
-		//ju.adapterloginfo(2, "config.gardena_api_key verschlüsselt: " + this.config.gardena_api_key);
+		ju.adapterloginfo(1, "onReady...");
 		
-		this.getForeignObject("system.config", (err, obj) => {
-			if (obj && obj.native && obj.native.secret) {
-				//noinspection JSUnresolvedVariable
-				this.config.gardena_password = ju.decrypt(obj.native.secret, this.config.gardena_password);
-				this.config.gardena_api_key = ju.decrypt(obj.native.secret, this.config.gardena_api_key);
-			} else {
-				//noinspection JSUnresolvedVariable
-				let defkey = '"ZgAsfr5s6gFe87jJOx4M';
-				this.config.gardena_password = ju.decrypt(defkey, this.config.gardena_password);
-				this.config.gardena_api_key = ju.decrypt(defkey, this.config.gardena_api_key);
-			}
-			main(this);
-		});	 
+		main(this);
 	}
 	 
 	 

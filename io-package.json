@@ -1,10 +1,21 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "1.0.6",
+    "version": "2.0.0",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+	  "2.0.0": {
+		"en": "support for new login procedure to Gardena webservice; admin5 is necessary",
+		"de": "unterstützung für neue Anmeldeverfahren für Gardena Webservice; admin5 ist notwendig",
+		"ru": "поддержка новой процедуры входа в веб-сервис Gardena; admin5 необходимо",
+		"pt": "suporte para novo procedimento de login para Gardena webservice; admin5 é necessário",
+		"nl": "admin 5 is noodzakelijk",
+		"fr": "support pour la nouvelle procédure de connexion à Gardena webservice; admin5 est nécessaire",
+		"it": "supporto per la nuova procedura di login a Gardena webservice; admin5 è necessario",
+		"es": "soporte para nuevo procedimiento de inicio de sesión en Gardena webservice; admin5 es necesario",
+		"pl": "wspieranie nowej procedury loginowej do serwisu internetowego Gardena; admin5 jest niezbędne",
+		"zh-cn": "对Gordena网站服务的新逻辑程序的支持;需要注意5"},
       "1.0.6": {
 		"en": "bug fix error handling, changes due to changed behavior Gardena Service, some minor changes in documentation",
 		"de": "Fehlerbehebung Fehlerbehandlung, Änderungen aufgrund geänderten Verhaltens Gardena Service, einige kleinere Änderungen in der Dokumentation",
@@ -175,18 +186,41 @@
     "type": "garden",
     "compact": true,
     "materialize": true,
-    "dependencies": [ ]
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=4.0.15"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.3.2"
+      }
+    ]
   },
+  "encryptedNative": [
+	"gardena_api_key",
+  	"gardena_application_secret",
+  	"gardena_password"  
+  ],
+  "protectedNative": [
+	"gardena_api_key",
+  	"gardena_application_secret",
+	"gardena_username",
+  	"gardena_password"  
+  ],
   "native": {
     "smart_host": "https://api.smart.gardena.dev",
     "gardena_authentication_host": "https://api.authentication.husqvarnagroup.dev",
-    "gardena_api_key": "12345678-1234-1234-1234-1234567890ab",
+    "gardena_api_key": "",
+    "gardena_application_secret": "",
     "gardena_username": "mail@me.com",
-    "gardena_password": "password",
+    "gardena_password": "",
     "gardena_ping_frequence": "150",
     "connection_retry_interval": "300",
-    "gardena_authtoken_factor": "1.001",
-    "preDefineStates": false,
+    "gardena_authtoken_factor": "0.999",
 	"useIrrigationAllowedWhileMowing": false,
 	"useMowerHistory": false,
 	"MowerHistoryCycles": "10",

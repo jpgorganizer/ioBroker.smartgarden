@@ -1,10 +1,22 @@
 {
   "common": {
     "name": "smartgarden",
-    "version": "2.0.0",
+    "version": "2.0.1",
 	"connectionType": "cloud",
     "dataSource": "push",
     "news": {
+	  "2.0.1": {
+		"en": "some really small improvements",
+		"de": "einige wirklich kleine verbesserungen",
+		"ru": "некоторые действительно небольшие улучшения",
+		"pt": "algumas melhorias realmente pequenas",
+		"nl": "enkele echt kleine verbeteringen",
+		"fr": "quelques améliorations vraiment petites",
+		"it": "alcuni miglioramenti veramente piccoli",
+		"es": "algunas mejoras realmente pequeñas",
+		"pl": "kilka naprawdę małych ulepszeń",
+		"uk": "деякі дійсно невеликі поліпшення",
+		"zh-cn": "一些真正的小改进" },
 	  "2.0.0": {
 		"en": "support for new login procedure to Gardena webservice; admin5 is necessary",
 		"de": "unterstützung für neue Anmeldeverfahren für Gardena Webservice; admin5 ist notwendig",
@@ -15,7 +27,7 @@
 		"it": "supporto per la nuova procedura di login a Gardena webservice; admin5 è necessario",
 		"es": "soporte para nuevo procedimiento de inicio de sesión en Gardena webservice; admin5 es necesario",
 		"pl": "wspieranie nowej procedury loginowej do serwisu internetowego Gardena; admin5 jest niezbędne",
-		"zh-cn": "对Gordena网站服务的新逻辑程序的支持;需要注意5"},
+		"zh-cn": "对Gordena网站服务的新逻辑程序的支持;需要注意5"},		
       "1.0.6": {
 		"en": "bug fix error handling, changes due to changed behavior Gardena Service, some minor changes in documentation",
 		"de": "Fehlerbehebung Fehlerbehandlung, Änderungen aufgrund geänderten Verhaltens Gardena Service, einige kleinere Änderungen in der Dokumentation",

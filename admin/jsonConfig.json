@@ -434,7 +434,6 @@
 					"type": "text",
 					"label": "label_gardena_username",
 					"help": "help_gardena_username",
-					"visible": true,
 					"disabled": "data.gardena_application_secret != '' && data.gardena_username == '' ",
 					"sm": 12,
 					"md": 8,

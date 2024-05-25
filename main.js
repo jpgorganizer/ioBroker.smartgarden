@@ -3,7 +3,7 @@
  * based on official GARDENA smart system API (https://developer.1689.cloud/)
  * Support:             https://forum.iobroker.net/...
  * Autor:               jpgorganizer (ioBroker) | jpgorganizer (github) 
- * SVN:                 $Rev: 2831 $ $Date: 2022-06-13 13:00:32 +0200 (Mo, 13 Jun 2022) $
+ * SVN:                 $Rev: 3209 $ $Date: 2024-05-25 12:16:16 +0200 (Sa, 25 Mai 2024) $
  * contains some functions available at forum.iobroker.net, see function header
  */
 'use strict';
@@ -11,8 +11,8 @@
 /*
  * Created with @iobroker/create-adapter v1.17.0
  */
-const mainrev ='$Rev: 2831 $';
-const adapterversion = '2.0.0';
+const mainrev ='$Rev: 3209 $';
+const adapterversion = '2.0.1';
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
@@ -292,8 +292,14 @@ class Smartgarden extends utils.Adapter {
             ju.adapterloginfo(1, 'cleaned everything up...');
 			gardena_api.stopAllTimer();
 			
-            callback();
+			// Reset the connection indicator during shutdown
+			this.setState('info.connection', false, true, function (err) {
+				if (err) this.log.error(err);
+				callback();
+			});           
+
         } catch (e) {
+			ju.adapterloginfo(1, 'onUnload error catched');
             callback();
         }
     }

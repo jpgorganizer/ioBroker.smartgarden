@@ -651,6 +651,9 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.0.1
 * (jpgorganizer) 2024-May-25
   - fixed warning `smartgarden has an invalid jsonConfig`, e.g. 

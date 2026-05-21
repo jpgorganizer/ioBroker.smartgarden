@@ -651,6 +651,10 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 2.0.1
 * (jpgorganizer) 2024-May-25
   - fixed warning `smartgarden has an invalid jsonConfig`, e.g. 

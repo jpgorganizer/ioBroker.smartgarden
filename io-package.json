@@ -294,7 +294,7 @@
     "tier": 2,
     "dependencies": [
       {
-        "js-controller": ">=4.0.15"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [

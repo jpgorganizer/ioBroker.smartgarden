@@ -833,6 +833,7 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
 * (jpgorganizer) 2020-Mar-01
   - initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 Many thanks to GARDENA/Husqvarna for providing this 

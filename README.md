@@ -651,6 +651,14 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (Schimi1983)
+  - fixed unit of temperature data points (`�C` instead of `°C`); existing data points are corrected on adapter start
+
 ### 2.0.1
 * (jpgorganizer) 2024-May-25
   - fixed warning `smartgarden has an invalid jsonConfig`, e.g. 

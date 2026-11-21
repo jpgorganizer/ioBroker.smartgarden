@@ -102,6 +102,33 @@ function updateAdapter020000(adapter, previousAdapterVersion, currentAdapterVers
 	}
 }
 
+/**
+ * Repairs the unit of existing temperature states.
+ * Up to v2.0.1 lib/predefdp.js was saved in ISO-8859-1, so the unit '°C' was
+ * read by Node.js (UTF-8) as '�' + 'C'. setObjectNotExists() never
+ * updates existing objects, so the wrong unit has to be fixed once here.
+ * @param {object} adapter adapter object
+ */
+function fixTemperatureUnits(adapter) {
+	let pattern = adapter.namespace + '.*Temperature_value';
+
+	adapter.getForeignObjects(pattern, 'state', function (err, objs) {
+		if (err || !objs) {
+			return;
+		}
+		for (let id in objs) {
+			let obj = objs[id];
+			if (obj && obj.common && typeof obj.common.unit === 'string' && obj.common.unit !== '°C' && obj.common.unit.indexOf('�') !== -1) {
+				adapter.extendForeignObject(id, {common: {unit: '°C'}}, function (err) {
+					if (!err) {
+						ju.adapterloginfo(1, 'update: unit of ' + gardena_api.beautifyStateIdName(id) + ' corrected to °C');
+					}
+				});
+			}
+		}
+	});
+}
+
 function updateAdapter(adapter, callback) {
 	let dotfactor = 100;
 	let id = adapter.name + '.' + adapter.instance + '.info.adapterversion'
@@ -226,6 +253,7 @@ function main(adapter) {
 	gardena_api.setAdapter(adapter);
 		
 	updateAdapter(adapter, function(err) {
+		fixTemperatureUnits(adapter);
 		gardena_api.setVer(mainrev);
 		gardena_api.getConnection();
 		
